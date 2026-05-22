@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Internship Workflow | Aditya Kumar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#0b0f19;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at top left,#1d4ed840,transparent 30%),
+      radial-gradient(circle at bottom right,#06b6d430,transparent 30%);
+      z-index:-1;
+    }
+
+    nav{
+      width:100%;
+      padding:22px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      background:rgba(10,15,25,0.72);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      z-index:1000;
+    }
+
+    nav h1{
+      color:#38bdf8;
+      font-size:24px;
+      font-weight:700;
+    }
+
+    nav a{
+      color:#38bdf8;
+      text-decoration:none;
+      border:1px solid #38bdf8;
+      padding:10px 18px;
+      border-radius:12px;
+      transition:0.3s ease;
+    }
+
+    nav a:hover{
+      background:#38bdf8;
+      color:#0b0f19;
+    }
+
+    section{
+      padding:110px 8%;
+    }
+
+    .hero{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      flex-direction:column;
+      position:relative;
+    }
+
+    .hero-badge{
+      margin-bottom:25px;
+      color:#38bdf8;
+      letter-spacing:2px;
+      font-size:14px;
+      font-weight:600;
+      animation:fadeUp 0.8s ease;
+    }
+
+    .hero h1{
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:25px;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero p{
+      max-width:950px;
+      color:#cbd5e1;
+      line-height:2;
+      font-size:17px;
+      animation:fadeUp 1.2s ease;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .section-title{
+      font-size:44px;
+      margin-bottom:60px;
+      position:relative;
+    }
+
+    .section-title::after{
+      content:'';
+      position:absolute;
+      width:90px;
+      height:4px;
+      background:#38bdf8;
+      left:0;
+      bottom:-14px;
+      border-radius:10px;
+    }
+
+    /* KPI */
+
+    .kpi-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:28px;
+      margin-top:50px;
+    }
+
+    .kpi-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      padding:40px;
+      border-radius:28px;
+      transition:0.45s ease;
+      backdrop-filter:blur(10px);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .kpi-card::before{
+      content:'';
+      position:absolute;
+      width:160%;
+      height:160%;
+      background:linear-gradient(
+      130deg,
+      transparent,
+      rgba(56,189,248,0.07),
+      transparent
+      );
+      top:-120%;
+      left:-120%;
+      transition:0.8s ease;
+    }
+
+    .kpi-card:hover::before{
+      top:0;
+      left:0;
+    }
+
+    .kpi-card:hover{
+      transform:translateY(-12px);
+      border-color:#38bdf8;
+      box-shadow:
+      0 0 35px rgba(56,189,248,0.18),
+      0 0 70px rgba(56,189,248,0.08);
+    }
+
+    .counter{
+      font-size:56px;
+      color:#38bdf8;
+      font-weight:700;
+      margin-bottom:15px;
+    }
+
+    .kpi-card p{
+      color:#cbd5e1;
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    /* TIMELINE FIXED */
+
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:28px;
+      margin-top:60px;
+    }
+
+    .timeline-step{
+      position:relative;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      padding:32px 24px;
+      border-radius:24px;
+      text-align:center;
+      transition:0.45s ease;
+      overflow:hidden;
+    }
+
+    .timeline-step::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:-100%;
+      width:100%;
+      height:100%;
+      background:linear-gradient(
+      120deg,
+      transparent,
+      rgba(56,189,248,0.08),
+      transparent
+      );
+      transition:0.7s ease;
+    }
+
+    .timeline-step:hover::before{
+      left:100%;
+    }
+
+    .timeline-step:hover{
+      transform:translateY(-10px);
+      border-color:#38bdf8;
+      box-shadow:
+      0 0 30px rgba(56,189,248,0.18),
+      0 0 60px rgba(56,189,248,0.08);
+    }
+
+    .timeline-step h3{
+      color:#38bdf8;
+      margin-bottom:14px;
+      font-size:20px;
+    }
+
+    .timeline-step p{
+      color:#cbd5e1;
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    /* WORKFLOW */
+
+    .workflow-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:35px;
+      margin-top:55px;
+    }
+
+    .workflow-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:28px;
+      padding:38px;
+      transition:0.4s ease;
+    }
+
+    .workflow-card:hover{
+      transform:translateY(-10px);
+      border-color:#38bdf8;
+      box-shadow:0 0 30px rgba(56,189,248,0.18);
+    }
+
+    .workflow-card h3{
+      color:#38bdf8;
+      margin-bottom:28px;
+      font-size:24px;
+    }
+
+    .flow-step{
+      position:relative;
+      background:rgba(56,189,248,0.08);
+      padding:18px;
+      border-radius:14px;
+      margin-bottom:34px;
+      text-align:center;
+      color:#e2e8f0;
+      font-weight:500;
+      transition:0.3s ease;
+    }
+
+    .flow-step:hover{
+      background:rgba(56,189,248,0.18);
+      transform:scale(1.02);
+    }
+
+    .flow-step::after{
+      content:'↓';
+      position:absolute;
+      bottom:-28px;
+      left:50%;
+      transform:translateX(-50%);
+      color:#38bdf8;
+      font-size:22px;
+    }
+
+    .flow-step:last-child::after{
+      display:none;
+    }
+
+    /* DASHBOARD */
+
+    .dashboard-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+      margin-top:55px;
+    }
+
+    .dashboard-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:28px;
+      padding:35px;
+      transition:0.4s ease;
+    }
+
+    .dashboard-card:hover{
+      transform:translateY(-10px);
+      border-color:#38bdf8;
+      box-shadow:0 0 30px rgba(56,189,248,0.18);
+    }
+
+    .dashboard-card h3{
+      color:#38bdf8;
+      margin-bottom:25px;
+      font-size:22px;
+    }
+
+    .progress-item{
+      margin-bottom:28px;
+    }
+
+    .progress-item p{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:10px;
+      color:#cbd5e1;
+    }
+
+    .progress-bar{
+      width:100%;
+      height:10px;
+      background:rgba(255,255,255,0.05);
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .progress-fill{
+      height:100%;
+      background:#38bdf8;
+      border-radius:10px;
+      animation:growBar 2s ease forwards;
+    }
+
+    @keyframes growBar{
+      from{
+        width:0;
+      }
+    }
+
+    /* TABLE */
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:50px;
+      background:rgba(255,255,255,0.03);
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    table th{
+      background:rgba(56,189,248,0.15);
+      color:#38bdf8;
+      padding:18px;
+      text-align:left;
+    }
+
+    table td{
+      padding:18px;
+      color:#cbd5e1;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    table tr:hover{
+      background:rgba(255,255,255,0.03);
+    }
+
+    /* INSIGHTS */
+
+    .insight-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:28px;
+      margin-top:55px;
+    }
+
+    .insight-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:24px;
+      padding:32px;
+      transition:0.4s ease;
+    }
+
+    .insight-card:hover{
+      transform:translateY(-10px);
+      border-color:#38bdf8;
+      box-shadow:0 0 30px rgba(56,189,248,0.18);
+    }
+
+    .insight-card h3{
+      color:#38bdf8;
+      margin-bottom:18px;
+      font-size:20px;
+    }
+
+    .insight-card p{
+      color:#cbd5e1;
+      line-height:1.9;
+      font-size:15px;
+    }
+
+    .summary-box{
+      margin-top:60px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:28px;
+      padding:45px;
+      color:#cbd5e1;
+      line-height:2;
+      font-size:16px;
+    }
+
+    footer{
+      text-align:center;
+      padding:70px;
+      border-top:1px solid rgba(255,255,255,0.05);
+      color:#94a3b8;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:50px;
+      }
+
+      .section-title{
+        font-size:36px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <nav>
+
+    <h1>AK.</h1>
+
+    <a href="index.html">← Back to Portfolio</a>
+
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-badge">
+      INTERNSHIP • OPERATIONS • WORKFLOW ANALYTICS
+    </div>
+
+    <h1>Internship Workflow & Operational Exposure</h1>
+
+    <p>
+      During my internship at Freshneer Foods & Services Pvt. Ltd.,
+      I gained practical exposure to inventory coordination,
+      warehouse workflows,
+      operational reporting,
+      vendor communication,
+      logistics execution,
+      and process-driven operational systems.
+
+      This page highlights workflow understanding,
+      operational coordination,
+      KPI observations,
+      and business process exposure experienced during the internship period.
+    </p>
+
+  </section>
+
+  <section>
+
+    <h2 class="section-title">Operational KPI Overview</h2>
+
+    <div class="kpi-grid">
+
+      <div class="kpi-card">
+        <div class="counter" data-target="420">0</div>
+        <p>Inventory Entry & Stock Monitoring Activities</p>
+      </div>
+
+      <div class="kpi-card">
+        <div class="counter" data-target="85">0</div>
+        <p>Dispatch Coordination & Logistics Follow-ups</p>
+      </div>
+
+      <div class="kpi-card">
+        <div class="counter" data-target="35">0</div>
+        <p>Vendor Coordination & Purchase Communication</p>
+      </div>
+
+      <div class="kpi-card">
+        <div class="counter" data-target="94">0</div>
+        <p>Operational Accuracy & Reporting Consistency</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2 class="section-title">Operational Workflow Timeline</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-step">
+        <h3>Inventory Verification</h3>
+        <p>Cross-checking stock entries and warehouse records.</p>
+      </div>
+
+      <div class="timeline-step">
+        <h3>Zoho Inventory Entry</h3>
+        <p>Updating inventory records and operational tracking.</p>
+      </div>
+
+      <div class="timeline-step">
+        <h3>Warehouse Coordination</h3>
+        <p>Monitoring stock allocation and operational flow.</p>
+      </div>
+
+      <div class="timeline-step">
+        <h3>Dispatch Planning</h3>
+        <p>Supporting shipment preparation and dispatch coordination.</p>
+      </div>
+
+      <div class="timeline-step">
+        <h3>Delivery Monitoring</h3>
+        <p>Following logistics execution and shipment updates.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2 class="section-title">Inventory & Dispatch Workflows</h2>
+
+    <div class="workflow-grid">
+
+      <div class="workflow-card">
+
+        <h3>Inventory Processing Flow</h3>
+
+        <div class="flow-step">Vendor Delivery Received</div>
+
+        <div class="flow-step">GRN Verification & Validation</div>
+
+        <div class="flow-step">Zoho Inventory Entry</div>
+
+        <div class="flow-step">Warehouse Allocation</div>
+
+        <div class="flow-step">Inventory Tracking & Monitoring</div>
+
+      </div>
+
+      <div class="workflow-card">
+
+        <h3>Dispatch Coordination Flow</h3>
+
+        <div class="flow-step">Order Processing</div>
+
+        <div class="flow-step">Stock Availability Check</div>
+
+        <div class="flow-step">Dispatch Coordination</div>
+
+        <div class="flow-step">Shipment Documentation</div>
+
+        <div class="flow-step">Delivery Tracking</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2 class="section-title">Operational Performance Dashboard</h2>
+
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card">
+
+        <h3>Workflow Efficiency Metrics</h3>
+
+        <div class="progress-item">
+
+          <p>
+            <span>Inventory Accuracy</span>
+            <span>94%</span>
+          </p>
+
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:94%;"></div>
+          </div>
+
+        </div>
+
+        <div class="progress-item">
+
+          <p>
+            <span>Dispatch Coordination</span>
+            <span>88%</span>
+          </p>
+
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:88%;"></div>
+          </div>
+
+        </div>
+
+        <div class="progress-item">
+
+          <p>
+            <span>Documentation Accuracy</span>
+            <span>91%</span>
+          </p>
+
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:91%;"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="dashboard-card">
+
+        <h3>Operational Learnings</h3>
+
+        <div class="progress-item">
+
+          <p>
+            <span>Process Coordination</span>
+            <span>Strong</span>
+          </p>
+
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:90%;"></div>
+          </div>
+
+        </div>
+
+        <div class="progress-item">
+
+          <p>
+            <span>Vendor Communication</span>
+            <span>Good</span>
+          </p>
+
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:82%;"></div>
+          </div>
+
+        </div>
+
+        <div class="progress-item">
+
+          <p>
+            <span>Reporting Discipline</span>
+            <span>Consistent</span>
+          </p>
+
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:87%;"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2 class="section-title">Weekly Operational Tracking</h2>
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Week</th>
+          <th>Inventory Entries</th>
+          <th>Dispatch Orders</th>
+          <th>Vendor Follow-ups</th>
+          <th>Reporting Tasks</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Week 1</td>
+          <td>128</td>
+          <td>42</td>
+          <td>9</td>
+          <td>12</td>
+        </tr>
+
+        <tr>
+          <td>Week 2</td>
+          <td>146</td>
+          <td>51</td>
+          <td>12</td>
+          <td>16</td>
+        </tr>
+
+        <tr>
+          <td>Week 3</td>
+          <td>139</td>
+          <td>48</td>
+          <td>11</td>
+          <td>14</td>
+        </tr>
+
+        <tr>
+          <td>Week 4</td>
+          <td>154</td>
+          <td>57</td>
+          <td>13</td>
+          <td>18</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </section>
+
+  <section>
+
+    <h2 class="section-title">Operational Insights & Learnings</h2>
+
+    <div class="insight-grid">
+
+      <div class="insight-card">
+
+        <h3>Inventory Visibility</h3>
+
+        <p>
+          Understood the importance of accurate stock visibility
+          in maintaining smooth operational flow
+          and minimizing dispatch delays.
+        </p>
+
+      </div>
+
+      <div class="insight-card">
+
+        <h3>Cross-functional Coordination</h3>
+
+        <p>
+          Observed how warehouse teams,
+          vendors,
+          procurement,
+          and logistics functions
+          work together within operational environments.
+        </p>
+
+      </div>
+
+      <div class="insight-card">
+
+        <h3>Operational Reporting</h3>
+
+        <p>
+          Learned how reporting accuracy,
+          documentation consistency,
+          and workflow tracking
+          support business decision-making.
+        </p>
+
+      </div>
+
+      <div class="insight-card">
+
+        <h3>Process Discipline</h3>
+
+        <p>
+          Developed understanding of process-based execution,
+          workflow coordination,
+          and operational responsibility within supply systems.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="summary-box">
+
+      The internship experience strengthened my understanding of
+      inventory systems,
+      operational coordination,
+      warehouse workflows,
+      vendor communication,
+      logistics execution,
+      and reporting-driven business environments.
+
+      Exposure to operational tools,
+      workflow structures,
+      and process coordination provided practical understanding
+      of how supply chain and business operations function together
+      within modern organizations.
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    Internship Workflow Showcase • Aditya Kumar
+
+  </footer>
+
+  <script>
+
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+
+      counter.innerText = '0';
+
+      const updateCounter = () => {
+
+        const target = +counter.getAttribute('data-target');
+
+        const current = +counter.innerText;
+
+        const increment = target / 80;
+
+        if(current < target){
+
+          counter.innerText = `${Math.ceil(current + increment)}`;
+
+          setTimeout(updateCounter, 25);
+
+        } else {
+
+          if(target === 94){
+            counter.innerText = target + '%';
+          } else {
+            counter.innerText = target + '+';
+          }
+
+        }
+
+      };
+
+      updateCounter();
+
+    });
+
+  </script>
+
+</body>
+
+</html>

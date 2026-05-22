@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HR Dashboard | Aditya Kumar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#06111f;
+color:white;
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top left,#00d4ff20,transparent 30%),
+radial-gradient(circle at bottom right,#00ff8850,transparent 30%);
+z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+background:rgba(6,17,31,0.88);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+z-index:1000;
+}
+
+nav h1{
+color:#00d4ff;
+font-size:24px;
+font-weight:700;
+}
+
+nav a{
+text-decoration:none;
+color:#00d4ff;
+border:1px solid #00d4ff;
+padding:10px 18px;
+border-radius:12px;
+transition:0.3s ease;
+}
+
+nav a:hover{
+background:#00d4ff;
+color:#06111f;
+}
+
+/* GLOBAL */
+
+section{
+padding:110px 8%;
+}
+
+.section-title{
+font-size:46px;
+margin-bottom:70px;
+position:relative;
+}
+
+.section-title::after{
+content:'';
+position:absolute;
+width:90px;
+height:4px;
+background:#00d4ff;
+left:0;
+bottom:-14px;
+border-radius:10px;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:70px;
+}
+
+.hero-text{
+animation:fadeUp 1s ease;
+}
+
+.hero-badge{
+color:#00d4ff;
+letter-spacing:2px;
+font-size:14px;
+margin-bottom:22px;
+font-weight:600;
+}
+
+.hero-text h1{
+font-size:72px;
+line-height:1.1;
+margin-bottom:24px;
+}
+
+.hero-text p{
+color:#cbd5e1;
+line-height:2;
+font-size:17px;
+text-align:justify;
+}
+
+.hero-image{
+position:relative;
+}
+
+.hero-image img{
+width:100%;
+height:620px;
+object-fit:cover;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:
+0 0 40px rgba(0,212,255,0.15),
+0 0 80px rgba(0,255,136,0.08);
+}
+
+.hero-overlay{
+position:absolute;
+bottom:-25px;
+left:-20px;
+width:280px;
+background:rgba(8,22,40,0.92);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:24px;
+padding:24px;
+backdrop-filter:blur(14px);
+box-shadow:0 0 30px rgba(0,212,255,0.15);
+}
+
+.hero-overlay h3{
+color:#00d4ff;
+margin-bottom:12px;
+}
+
+.hero-overlay p{
+color:#cbd5e1;
+line-height:1.8;
+font-size:14px;
+text-align:justify;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-8px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+/* BRANCH SECTION */
+
+.branch-wrapper{
+margin-top:50px;
+}
+
+.center-node{
+width:380px;
+margin:auto;
+background:rgba(0,212,255,0.12);
+border:1px solid rgba(0,212,255,0.22);
+border-radius:28px;
+padding:34px;
+text-align:center;
+animation:float 5s ease-in-out infinite;
+}
+
+.center-node h3{
+color:#00d4ff;
+margin-bottom:14px;
+font-size:28px;
+}
+
+.center-node p{
+color:#cbd5e1;
+line-height:1.9;
+font-size:14px;
+text-align:justify;
+}
+
+.branch-line{
+width:4px;
+height:70px;
+background:#00d4ff;
+opacity:0.3;
+margin:auto;
+}
+
+.branch-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:34px;
+margin-top:30px;
+}
+
+.branch-card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:30px;
+overflow:hidden;
+transition:0.4s ease;
+}
+
+.branch-card:hover{
+transform:translateY(-10px);
+border-color:#00d4ff;
+box-shadow:
+0 0 30px rgba(0,212,255,0.15),
+0 0 60px rgba(0,255,136,0.08);
+}
+
+.branch-card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.branch-content{
+padding:32px;
+}
+
+.branch-content h3{
+color:#00d4ff;
+margin-bottom:16px;
+font-size:24px;
+}
+
+.branch-content p{
+color:#cbd5e1;
+line-height:1.9;
+font-size:15px;
+text-align:justify;
+}
+
+/* LIVE DASHBOARD */
+
+.analytics-topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:40px;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.live-indicator{
+display:flex;
+align-items:center;
+gap:12px;
+background:rgba(255,255,255,0.03);
+padding:12px 22px;
+border-radius:40px;
+border:1px solid rgba(255,255,255,0.05);
+color:#00d4ff;
+font-weight:600;
+letter-spacing:1px;
+}
+
+.pulse{
+width:12px;
+height:12px;
+background:#00ff88;
+border-radius:50%;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+opacity:1;
+}
+50%{
+transform:scale(1.5);
+opacity:0.5;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.analytics-year{
+color:#94a3b8;
+font-size:14px;
+}
+
+.analytics-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:28px;
+}
+
+.analytics-card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:32px;
+padding:38px 28px;
+text-align:center;
+transition:0.4s ease;
+overflow:hidden;
+position:relative;
+}
+
+.analytics-card:hover{
+transform:translateY(-12px);
+border-color:#00d4ff;
+box-shadow:
+0 0 40px rgba(0,212,255,0.15),
+0 0 70px rgba(0,255,136,0.08);
+}
+
+.analytics-card h3{
+margin-top:26px;
+font-size:22px;
+margin-bottom:14px;
+color:#00d4ff;
+}
+
+.analytics-card p{
+color:#cbd5e1;
+line-height:1.9;
+font-size:14px;
+text-align:justify;
+}
+
+/* RINGS */
+
+.progress-ring{
+position:relative;
+width:180px;
+height:180px;
+margin:auto;
+}
+
+.progress-ring svg{
+width:180px;
+height:180px;
+transform:rotate(-90deg);
+}
+
+.progress-ring circle{
+fill:none;
+stroke-width:12;
+stroke-linecap:round;
+}
+
+.progress-ring .bg{
+stroke:rgba(255,255,255,0.08);
+}
+
+.progress{
+stroke:#00d4ff;
+stroke-dasharray:440;
+}
+
+.retention-ring{
+stroke-dashoffset:97;
+}
+
+.recruit-ring{
+stroke-dashoffset:136;
+}
+
+.workforce-ring{
+stroke-dashoffset:114;
+}
+
+.dashboard-ring{
+stroke-dashoffset:84;
+}
+
+.progress-value{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:34px;
+font-weight:700;
+color:#00d4ff;
+}
+
+/* INTELLIGENCE BOARD */
+
+.intelligence-board{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+margin-top:50px;
+}
+
+.board-left,
+.board-right{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:32px;
+padding:40px;
+}
+
+.board-left h3,
+.board-right h3{
+color:#00d4ff;
+margin-bottom:34px;
+font-size:26px;
+}
+
+/* FUNNEL */
+
+.funnel{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.funnel-bar{
+padding:20px 24px;
+border-radius:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:600;
+transition:0.4s ease;
+}
+
+.funnel-bar:hover{
+transform:translateX(10px);
+}
+
+.funnel1{
+background:rgba(0,212,255,0.18);
+width:100%;
+}
+
+.funnel2{
+background:rgba(0,212,255,0.14);
+width:82%;
+}
+
+.funnel3{
+background:rgba(0,212,255,0.10);
+width:64%;
+}
+
+.funnel4{
+background:rgba(0,212,255,0.07);
+width:42%;
+}
+
+/* TREND */
+
+.trend-chart{
+height:240px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+}
+
+.trend-line{
+width:100%;
+height:4px;
+background:#00d4ff;
+position:relative;
+border-radius:20px;
+}
+
+.point{
+width:18px;
+height:18px;
+background:#00ff88;
+border-radius:50%;
+position:absolute;
+top:-7px;
+animation:floatPoint 3s infinite ease-in-out;
+box-shadow:0 0 18px #00ff88;
+}
+
+.p1{left:8%; top:-20px;}
+.p2{left:28%; top:-55px;}
+.p3{left:48%; top:-8px;}
+.p4{left:68%; top:-70px;}
+.p5{left:88%; top:-28px;}
+
+@keyframes floatPoint{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-6px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+.trend-labels{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+color:#94a3b8;
+font-size:13px;
+}
+
+/* SUMMARY */
+
+.summary-box{
+margin-top:50px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:30px;
+padding:45px;
+}
+
+.summary-box h3{
+color:#00d4ff;
+margin-bottom:20px;
+font-size:30px;
+}
+
+.summary-box p{
+color:#cbd5e1;
+line-height:2;
+font-size:16px;
+text-align:justify;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:70px;
+border-top:1px solid rgba(255,255,255,0.05);
+color:#94a3b8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+.analytics-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:992px){
+
+.hero,
+.branch-grid,
+.intelligence-board{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.analytics-grid{
+grid-template-columns:1fr;
+}
+
+.hero-text h1{
+font-size:52px;
+}
+
+.section-title{
+font-size:36px;
+}
+
+.center-node{
+width:100%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h1>AK.</h1>
+
+<a href="index.html">← Back</a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<div class="hero-badge">
+HR ANALYTICS • WORKFORCE INSIGHTS • PEOPLE OPERATIONS
+</div>
+
+<h1>
+HR Dashboard &
+Workforce Analytics
+</h1>
+
+<p>
+This section reflects my exposure to workforce analytics,
+employee insight visualization,
+recruitment understanding,
+and HR-oriented dashboard systems through MBA coursework,
+self-paced exploration,
+and analytical project structuring.
+</p>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop">
+
+<div class="hero-overlay">
+
+<h3>HR Exposure</h3>
+
+<p>
+Recruitment insights,
+employee engagement,
+HR reporting systems,
+and workforce analytics understanding.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BRANCH SECTION -->
+
+<section>
+
+<h2 class="section-title">HR Analytics Architecture</h2>
+
+<div class="branch-wrapper">
+
+<div class="center-node">
+
+<h3>People & Workforce Analytics</h3>
+
+<p>
+Structured exposure to workforce understanding,
+employee insights,
+HR reporting,
+recruitment concepts,
+and dashboard-oriented HR analytical interpretation.
+</p>
+
+</div>
+
+<div class="branch-line"></div>
+
+<div class="branch-grid">
+
+<div class="branch-card">
+
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop">
+
+<div class="branch-content">
+
+<h3>Recruitment Insights</h3>
+
+<p>
+Explored recruitment workflows,
+candidate evaluation understanding,
+hiring-oriented business structures,
+and workforce planning concepts.
+</p>
+
+</div>
+
+</div>
+
+<div class="branch-card">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="branch-content">
+
+<h3>Employee Engagement</h3>
+
+<p>
+Understood workforce interaction concepts,
+employee communication structures,
+and organizational behavioral understanding.
+</p>
+
+</div>
+
+</div>
+
+<div class="branch-card">
+
+<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop">
+
+<div class="branch-content">
+
+<h3>HR KPI Visualization</h3>
+
+<p>
+Explored workforce KPI reporting,
+attendance insights,
+dashboard visualization concepts,
+and people analytics interpretation systems.
+</p>
+
+</div>
+
+</div>
+
+<div class="branch-card">
+
+<img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop">
+
+<div class="branch-content">
+
+<h3>HR Reporting Systems</h3>
+
+<p>
+Developed exposure to employee insight reporting,
+analytical HR structures,
+and workforce reporting interpretation concepts.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LIVE HR DASHBOARD -->
+
+<section>
+
+<h2 class="section-title">Live HR Analytics Dashboard</h2>
+
+<div class="analytics-topbar">
+
+<div class="live-indicator">
+<span class="pulse"></span>
+LIVE ANALYTICS
+</div>
+
+<div class="analytics-year">
+HR Workforce Insights • 2026
+</div>
+
+</div>
+
+<div class="analytics-grid">
+
+<div class="analytics-card">
+
+<div class="progress-ring">
+
+<svg>
+
+<circle class="bg" cx="90" cy="90" r="70"></circle>
+
+<circle class="progress retention-ring" cx="90" cy="90" r="70"></circle>
+
+</svg>
+
+<div class="progress-value">78%</div>
+
+</div>
+
+<h3>Retention Understanding</h3>
+
+<p>
+Workforce retention exposure,
+employee continuity understanding,
+and people analytics interpretation.
+</p>
+
+</div>
+
+<div class="analytics-card">
+
+<div class="progress-ring">
+
+<svg>
+
+<circle class="bg" cx="90" cy="90" r="70"></circle>
+
+<circle class="progress recruit-ring" cx="90" cy="90" r="70"></circle>
+
+</svg>
+
+<div class="progress-value">69%</div>
+
+</div>
+
+<h3>Recruitment Workflow</h3>
+
+<p>
+Candidate screening exposure,
+hiring structure understanding,
+and recruitment process interpretation.
+</p>
+
+</div>
+
+<div class="analytics-card">
+
+<div class="progress-ring">
+
+<svg>
+
+<circle class="bg" cx="90" cy="90" r="70"></circle>
+
+<circle class="progress workforce-ring" cx="90" cy="90" r="70"></circle>
+
+</svg>
+
+<div class="progress-value">74%</div>
+
+</div>
+
+<h3>Workforce Analytics</h3>
+
+<p>
+Dashboard-oriented HR metrics,
+attendance interpretation,
+and workforce KPI visualization.
+</p>
+
+</div>
+
+<div class="analytics-card">
+
+<div class="progress-ring">
+
+<svg>
+
+<circle class="bg" cx="90" cy="90" r="70"></circle>
+
+<circle class="progress dashboard-ring" cx="90" cy="90" r="70"></circle>
+
+</svg>
+
+<div class="progress-value">81%</div>
+
+</div>
+
+<h3>Dashboard Practice</h3>
+
+<p>
+Analytical HR dashboard exposure,
+report visualization,
+and insight-oriented HR structures.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- INTELLIGENCE BOARD -->
+
+<section>
+
+<h2 class="section-title">HR Intelligence Overview</h2>
+
+<div class="intelligence-board">
+
+<div class="board-left">
+
+<h3>Recruitment Funnel</h3>
+
+<div class="funnel">
+
+<div class="funnel-bar funnel1">
+<span>Applications Reviewed</span>
+<strong>148</strong>
+</div>
+
+<div class="funnel-bar funnel2">
+<span>Screening Stage</span>
+<strong>92</strong>
+</div>
+
+<div class="funnel-bar funnel3">
+<span>Interview Insights</span>
+<strong>51</strong>
+</div>
+
+<div class="funnel-bar funnel4">
+<span>Final Selection</span>
+<strong>18</strong>
+</div>
+
+</div>
+
+</div>
+
+<div class="board-right">
+
+<h3>Workforce Performance Trends</h3>
+
+<div class="trend-chart">
+
+<div class="trend-line">
+
+<div class="point p1"></div>
+<div class="point p2"></div>
+<div class="point p3"></div>
+<div class="point p4"></div>
+<div class="point p5"></div>
+
+</div>
+
+</div>
+
+<div class="trend-labels">
+
+<span>Engagement</span>
+<span>Attendance</span>
+<span>Reporting</span>
+<span>Hiring</span>
+<span>Retention</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SUMMARY -->
+
+<section>
+
+<div class="summary-box">
+
+<h3>HR Learning Exposure</h3>
+
+<p>
+This dashboard reflects analytical exposure to HR concepts,
+workforce metrics,
+employee insight visualization,
+and dashboard-oriented HR systems through MBA coursework and self-paced analytical exploration.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+HR Dashboard & Workforce Analytics • Aditya Kumar
+
+</footer>
+
+</body>
+
+</html>

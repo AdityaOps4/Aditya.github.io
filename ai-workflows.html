@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Workflow Systems | Aditya Kumar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#07111f;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#38bdf830 0%,transparent 70%);
+top:-250px;
+right:-250px;
+z-index:-2;
+animation:floatGlow 10s ease-in-out infinite alternate;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:650px;
+height:650px;
+background:radial-gradient(circle,#06b6d420 0%,transparent 70%);
+bottom:-250px;
+left:-250px;
+z-index:-2;
+animation:floatGlow2 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow{
+from{
+transform:translateY(0px);
+}
+to{
+transform:translateY(60px);
+}
+}
+
+@keyframes floatGlow2{
+from{
+transform:translateX(0px);
+}
+to{
+transform:translateX(60px);
+}
+}
+
+/* NAVBAR */
+
+nav{
+width:100%;
+padding:24px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+background:rgba(5,8,22,0.75);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+color:#38bdf8;
+}
+
+nav a{
+text-decoration:none;
+color:#d1d5db;
+transition:0.3s ease;
+font-size:15px;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+padding:170px 8% 120px;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:70px;
+align-items:center;
+}
+
+.hero-tag{
+display:inline-block;
+padding:12px 22px;
+background:rgba(56,189,248,0.12);
+border:1px solid rgba(56,189,248,0.25);
+border-radius:30px;
+color:#38bdf8;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:28px;
+}
+
+.hero h1{
+font-size:76px;
+line-height:1.05;
+margin-bottom:28px;
+}
+
+.hero p{
+font-size:16px;
+line-height:2;
+color:#cbd5e1;
+text-align:justify;
+}
+
+.hero-box{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+padding:42px;
+border-radius:34px;
+position:relative;
+overflow:hidden;
+}
+
+.hero-box::before{
+content:'';
+position:absolute;
+width:220px;
+height:220px;
+background:rgba(56,189,248,0.08);
+border-radius:50%;
+top:-80px;
+right:-80px;
+filter:blur(30px);
+}
+
+.hero-box h3{
+font-size:32px;
+margin-bottom:24px;
+color:#38bdf8;
+position:relative;
+z-index:2;
+}
+
+.hero-box ul{
+padding-left:20px;
+position:relative;
+z-index:2;
+}
+
+.hero-box li{
+margin-bottom:16px;
+line-height:1.8;
+color:#d1d5db;
+}
+
+/* GLOBAL */
+
+section{
+padding:120px 8%;
+}
+
+.section-title{
+font-size:64px;
+font-weight:800;
+margin-bottom:14px;
+line-height:1.1;
+}
+
+.section-line{
+width:90px;
+height:4px;
+background:#38bdf8;
+border-radius:20px;
+margin-bottom:60px;
+}
+
+/* PIPELINE */
+
+.workflow-container{
+display:flex;
+align-items:center;
+gap:28px;
+overflow-x:auto;
+padding:30px 10px;
+scrollbar-width:none;
+scroll-behavior:smooth;
+}
+
+.workflow-container::-webkit-scrollbar{
+display:none;
+}
+
+.workflow-card{
+min-width:290px;
+max-width:290px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:32px;
+padding:38px;
+position:relative;
+overflow:hidden;
+backdrop-filter:blur(16px);
+transition:0.45s ease;
+flex-shrink:0;
+}
+
+.workflow-card::before{
+content:'';
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(56,189,248,0.08);
+border-radius:50%;
+top:-70px;
+right:-70px;
+filter:blur(25px);
+transition:0.5s ease;
+}
+
+.workflow-card:hover::before{
+transform:scale(1.3);
+}
+
+.workflow-card:hover{
+transform:translateY(-10px);
+border-color:#38bdf8;
+box-shadow:
+0 0 35px rgba(56,189,248,0.18),
+0 0 80px rgba(56,189,248,0.08);
+}
+
+.workflow-number{
+font-size:14px;
+font-weight:700;
+letter-spacing:2px;
+color:#38bdf8;
+margin-bottom:22px;
+position:relative;
+z-index:2;
+}
+
+.workflow-card h3{
+font-size:34px;
+line-height:1.2;
+margin-bottom:22px;
+color:#38bdf8;
+position:relative;
+z-index:2;
+}
+
+.workflow-card p{
+font-size:15px;
+line-height:2;
+color:#cbd5e1;
+position:relative;
+z-index:2;
+text-align:justify;
+}
+
+.workflow-arrow{
+font-size:46px;
+font-weight:700;
+color:#38bdf8;
+animation:arrowMove 1.8s infinite alternate;
+flex-shrink:0;
+}
+
+@keyframes arrowMove{
+
+from{
+transform:translateX(0px);
+opacity:0.7;
+}
+
+to{
+transform:translateX(10px);
+opacity:1;
+}
+
+}
+
+/* NEW AI TOOLS SECTION */
+
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.tool-card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:30px;
+padding:36px;
+transition:0.4s ease;
+position:relative;
+overflow:hidden;
+}
+
+.tool-card::before{
+content:'';
+position:absolute;
+width:160px;
+height:160px;
+background:rgba(56,189,248,0.08);
+border-radius:50%;
+top:-70px;
+right:-70px;
+filter:blur(25px);
+}
+
+.tool-card:hover{
+transform:translateY(-10px);
+border-color:#38bdf8;
+box-shadow:0 0 30px rgba(56,189,248,0.18);
+}
+
+.tool-card h3{
+font-size:28px;
+margin-bottom:20px;
+color:#38bdf8;
+position:relative;
+z-index:2;
+}
+
+.tool-card p{
+line-height:1.9;
+font-size:15px;
+color:#cbd5e1;
+position:relative;
+z-index:2;
+text-align:justify;
+}
+
+/* CHART */
+
+.chart-box{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:34px;
+padding:40px;
+margin-top:50px;
+}
+
+canvas{
+max-height:420px;
+}
+
+/* FOOTER */
+
+footer{
+padding:80px 8%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.05);
+color:#9ca3af;
+line-height:2;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:54px;
+}
+
+.section-title{
+font-size:42px;
+}
+
+.workflow-card{
+min-width:260px;
+max-width:260px;
+padding:30px;
+}
+
+.workflow-card h3{
+font-size:28px;
+}
+
+.workflow-arrow{
+font-size:34px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">AK.</div>
+
+<a href="index.html">
+← Back to Portfolio
+</a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<div class="hero-tag">
+AI WORKFLOWS • ANALYTICS • DIGITAL PRODUCTIVITY
+</div>
+
+<h1>
+AI Workflow
+& Business
+Systems
+</h1>
+
+<p>
+Explored AI-assisted workflow systems for organizing business processes,
+improving research structuring,
+workflow documentation,
+dashboard planning,
+and productivity-oriented analytical systems.
+
+Focused on understanding how AI tools can support operational efficiency,
+business communication,
+research clarity,
+workflow visualization,
+and presentation-ready outputs within modern organizational environments.
+</p>
+
+</div>
+
+<div class="hero-box">
+
+<h3>AI Workflow Exposure</h3>
+
+<ul>
+
+<li>AI-Assisted Workflow Structuring</li>
+
+<li>Research Organization Systems</li>
+
+<li>Dashboard Planning Concepts</li>
+
+<li>Business Productivity Workflows</li>
+
+<li>Presentation & Visualization Systems</li>
+
+<li>Analytical Interpretation Support</li>
+
+<li>Digital Documentation Structuring</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- PIPELINE -->
+
+<section>
+
+<h2 class="section-title">AI Workflow Pipeline</h2>
+
+<div class="section-line"></div>
+
+<div class="workflow-container">
+
+<div class="workflow-card">
+
+<div class="workflow-number">01</div>
+
+<h3>Research Problem</h3>
+
+<p>
+Understanding project objectives,
+workflow direction,
+business requirements,
+and analytical problem statements.
+</p>
+
+</div>
+
+<div class="workflow-arrow">→</div>
+
+<div class="workflow-card">
+
+<div class="workflow-number">02</div>
+
+<h3>AI Structuring</h3>
+
+<p>
+Using AI systems for organizing workflows,
+research documentation,
+content structuring,
+and clarity improvement.
+</p>
+
+</div>
+
+<div class="workflow-arrow">→</div>
+
+<div class="workflow-card">
+
+<div class="workflow-number">03</div>
+
+<h3>Data Interpretation</h3>
+
+<p>
+Transforming findings into business-oriented insights,
+analytical observations,
+and structured interpretations.
+</p>
+
+</div>
+
+<div class="workflow-arrow">→</div>
+
+<div class="workflow-card">
+
+<div class="workflow-number">04</div>
+
+<h3>Dashboard Planning</h3>
+
+<p>
+Creating KPI structures,
+visual workflow systems,
+analytics dashboards,
+and reporting frameworks.
+</p>
+
+</div>
+
+<div class="workflow-arrow">→</div>
+
+<div class="workflow-card">
+
+<div class="workflow-number">05</div>
+
+<h3>Presentation</h3>
+
+<p>
+Converting structured insights into visually engaging,
+professional,
+and workflow-oriented outputs.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NEW SECTION -->
+
+<section>
+
+<h2 class="section-title">AI Tools & Workflow Exposure</h2>
+
+<div class="section-line"></div>
+
+<div class="tools-grid">
+
+<div class="tool-card">
+
+<h3>AI Productivity Systems</h3>
+
+<p>
+Explored AI-assisted productivity workflows for content organization,
+workflow management,
+research structuring,
+and digital operational support systems.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>Business Research Assistance</h3>
+
+<p>
+Used AI-supported approaches for analytical understanding,
+business research organization,
+workflow clarity,
+and insight-focused documentation systems.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>Presentation & Reporting</h3>
+
+<p>
+Applied AI-supported structuring techniques for dashboard presentation,
+business storytelling,
+visual clarity,
+and workflow-oriented reporting systems.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHART -->
+
+<section>
+
+<h2 class="section-title">Workflow Exposure Analytics</h2>
+
+<div class="section-line"></div>
+
+<div class="chart-box">
+
+<canvas id="workflowChart"></canvas>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+AI Workflows • Dashboard Structuring • Productivity Systems • Business Analytics
+</p>
+
+<p>
+Aditya Kumar • MBA Portfolio
+</p>
+
+</footer>
+
+<script>
+
+const ctx = document.getElementById('workflowChart');
+
+new Chart(ctx, {
+
+type:'line',
+
+data:{
+
+labels:[
+'Research',
+'Structuring',
+'Analytics',
+'Dashboard',
+'Presentation'
+],
+
+datasets:[{
+
+label:'AI Workflow Exposure',
+
+data:[68,84,79,88,91],
+
+borderColor:'#38bdf8',
+
+backgroundColor:'rgba(56,189,248,0.15)',
+
+fill:true,
+
+tension:0.4,
+
+pointBackgroundColor:'#38bdf8',
+
+pointRadius:6
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+legend:{
+labels:{
+color:'white'
+}
+}
+},
+
+scales:{
+
+x:{
+ticks:{
+color:'white'
+},
+grid:{
+color:'rgba(255,255,255,0.06)'
+}
+},
+
+y:{
+ticks:{
+color:'white'
+},
+grid:{
+color:'rgba(255,255,255,0.06)'
+},
+beginAtZero:true,
+max:100
+}
+
+}
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

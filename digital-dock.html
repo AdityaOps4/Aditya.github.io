@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Digital Dock | Aditya Kumar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  body{
+    font-family:'Inter',sans-serif;
+    background:#0b0f19;
+    color:white;
+    padding:60px 8%;
+    line-height:1.8;
+    overflow-x:hidden;
+    animation:fadeInBody 1.2s ease;
+  }
+
+  body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#1d4ed830,transparent 30%),
+    radial-gradient(circle at bottom right,#06b6d430,transparent 30%);
+    z-index:-1;
+    animation:bgMove 10s ease-in-out infinite alternate;
+  }
+
+  @keyframes bgMove{
+    from{
+      transform:scale(1);
+    }
+    to{
+      transform:scale(1.05);
+    }
+  }
+
+  @keyframes fadeInBody{
+    from{
+      opacity:0;
+    }
+    to{
+      opacity:1;
+    }
+  }
+
+  @keyframes slideUp{
+    from{
+      opacity:0;
+      transform:translateY(40px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  h1{
+    font-size:58px;
+    margin-bottom:20px;
+    color:#38bdf8;
+    line-height:1.1;
+    animation:slideUp 1s ease;
+  }
+
+  h2{
+    margin-top:10px;
+    margin-bottom:20px;
+    color:#38bdf8;
+    font-size:28px;
+  }
+
+  .subtitle{
+    color:#94a3b8;
+    font-size:19px;
+    max-width:900px;
+    margin-bottom:40px;
+    line-height:1.9;
+    animation:slideUp 1.2s ease;
+  }
+
+  p{
+    color:#cbd5e1;
+    margin-bottom:20px;
+    font-size:16px;
+  }
+
+  ul{
+    margin-left:20px;
+    color:#cbd5e1;
+  }
+
+  li{
+    margin-bottom:14px;
+    line-height:1.8;
+  }
+
+  .card{
+    background:rgba(255,255,255,0.03);
+    padding:35px;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,0.05);
+    margin-top:35px;
+    backdrop-filter:blur(10px);
+    transition:0.4s ease;
+    animation:slideUp 1s ease;
+  }
+
+  .card:hover{
+    transform:translateY(-8px) scale(1.01);
+    box-shadow:0 0 30px rgba(56,189,248,0.16);
+    border-color:#38bdf8;
+  }
+
+  a{
+    color:#38bdf8;
+    text-decoration:none;
+  }
+
+  .buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:45px;
+    animation:slideUp 1.4s ease;
+  }
+
+  .back{
+    display:inline-block;
+    padding:14px 24px;
+    border:1px solid #38bdf8;
+    border-radius:12px;
+    transition:0.3s;
+    font-weight:500;
+  }
+
+  .back:hover{
+    background:#38bdf8;
+    color:#0b0f19;
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(56,189,248,0.25);
+  }
+
+  @media(max-width:900px){
+
+    body{
+      padding:40px 6%;
+    }
+
+    h1{
+      font-size:42px;
+    }
+
+    h2{
+      font-size:24px;
+    }
+
+    .subtitle{
+      font-size:17px;
+    }
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+  <h1>The Digital Dock</h1>
+
+  <p class="subtitle">
+    Research project exploring how modern SCM technologies,
+    AI, IoT, predictive analytics, and digital transformation
+    are reshaping shipping logistics, operational efficiency,
+    and global supply chain visibility.
+  </p>
+
+  <div class="card">
+
+    <h2>Project Overview</h2>
+
+    <p>
+      The Digital Dock is an MBA research-based project focused on understanding
+      how Supply Chain Management (SCM) technologies are transforming
+      modern shipping and logistics ecosystems through automation,
+      digitalization, analytics, and operational optimization.
+    </p>
+
+    <p>
+      The project explores how technology-driven logistics systems
+      improve operational visibility, coordination efficiency,
+      transportation management, and supply chain resilience
+      within evolving global shipping networks.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Project Objective</h2>
+
+    <p>
+      The objective of this project was to analyze the role of
+      modern SCM technologies such as IoT, predictive analytics,
+      blockchain, cloud computing, automation, and digital platforms
+      in improving shipping logistics, operational efficiency,
+      customer service, and supply chain visibility.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Key Areas Researched</h2>
+
+    <ul>
+
+      <li>Shipping industry operations and logistics ecosystem</li>
+
+      <li>Supply chain management practices within shipping logistics</li>
+
+      <li>Inventory management and transportation coordination</li>
+
+      <li>IoT integration and real-time shipment visibility</li>
+
+      <li>Blockchain applications in logistics operations</li>
+
+      <li>Cloud computing and digital SCM platforms</li>
+
+      <li>Predictive analytics and operational forecasting</li>
+
+      <li>Risk management and supply chain resilience strategies</li>
+
+      <li>Digital transformation in shipping and logistics operations</li>
+
+    </ul>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Industry Analysis</h2>
+
+    <p>
+      The research included analysis of major shipping and logistics companies,
+      shipping market trends, SCM market growth,
+      and the increasing role of digital technologies
+      in improving operational efficiency, customer experience,
+      and logistics visibility.
+    </p>
+
+    <p>
+      The project also explored how companies are adopting
+      technology-enabled supply chain systems to optimize
+      transportation management, operational planning,
+      inventory visibility, and decision-making processes.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Business Impact & Insights</h2>
+
+    <p>
+      This project helped develop understanding of how
+      technology-driven supply chains improve operational coordination,
+      visibility, forecasting accuracy, customer service,
+      and logistics efficiency in modern shipping ecosystems.
+    </p>
+
+    <p>
+      The research also highlighted the growing importance
+      of automation, digital transformation,
+      operational analytics, and data-driven decision-making
+      across global logistics and shipping operations.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Key Learnings</h2>
+
+    <ul>
+
+      <li>Understanding of global logistics and shipping operations</li>
+
+      <li>Practical knowledge of supply chain visibility concepts</li>
+
+      <li>Awareness of digital SCM technologies and applications</li>
+
+      <li>Operational efficiency improvement techniques</li>
+
+      <li>Importance of data-driven decision-making in logistics</li>
+
+      <li>Understanding of modern logistics technology trends</li>
+
+      <li>Knowledge of digital transformation within shipping ecosystems</li>
+
+    </ul>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Tools & Concepts Used</h2>
+
+    <ul>
+
+      <li>Supply Chain Management (SCM)</li>
+
+      <li>Shipping & Logistics Operations</li>
+
+      <li>IoT & Smart Logistics Systems</li>
+
+      <li>Predictive Analytics Concepts</li>
+
+      <li>Digital Supply Chain Research</li>
+
+      <li>Operational Efficiency Analysis</li>
+
+      <li>Industry & Market Trend Research</li>
+
+      <li>Business Process Understanding</li>
+
+    </ul>
+
+  </div>
+
+  <div class="buttons">
+
+    <a href="digital-dock-report.pdf" target="_blank" class="back">
+      View Full Project Report
+    </a>
+
+    <a href="index.html" class="back">
+      ← Back to Portfolio
+    </a>
+
+  </div>
+
+</body>
+
+</html>

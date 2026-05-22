@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mobility Research & Market Analytics | Aditya Kumar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#06111f;
+    color:white;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#00d4ff20,transparent 30%),
+    radial-gradient(circle at bottom right,#00ff8850,transparent 30%);
+    z-index:-1;
+}
+
+nav{
+    width:100%;
+    padding:22px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    background:rgba(6,17,31,0.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    z-index:1000;
+}
+
+nav h1{
+    color:#00d4ff;
+    font-size:24px;
+    font-weight:700;
+}
+
+nav a{
+    color:#00d4ff;
+    text-decoration:none;
+    border:1px solid #00d4ff;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:0.3s ease;
+}
+
+nav a:hover{
+    background:#00d4ff;
+    color:#06111f;
+}
+
+section{
+    padding:110px 8%;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-text{
+    animation:fadeUp 1s ease;
+}
+
+.hero-badge{
+    color:#00d4ff;
+    letter-spacing:2px;
+    font-size:14px;
+    margin-bottom:22px;
+    font-weight:600;
+}
+
+.hero-text h1{
+    font-size:68px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    line-height:2;
+    font-size:17px;
+}
+
+.hero-image{
+    position:relative;
+}
+
+.hero-image img{
+    width:100%;
+    height:650px;
+    object-fit:cover;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:
+    0 0 40px rgba(0,212,255,0.15),
+    0 0 80px rgba(0,255,136,0.08);
+}
+
+.analytics-overlay{
+    position:absolute;
+    bottom:-25px;
+    left:-20px;
+    width:260px;
+    background:rgba(8,22,40,0.92);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    padding:24px;
+    backdrop-filter:blur(14px);
+    box-shadow:0 0 30px rgba(0,212,255,0.15);
+}
+
+.analytics-overlay h3{
+    color:#00d4ff;
+    margin-bottom:12px;
+    font-size:20px;
+}
+
+.analytics-overlay p{
+    color:#cbd5e1;
+    line-height:1.7;
+    font-size:14px;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.section-title{
+    font-size:44px;
+    margin-bottom:70px;
+    position:relative;
+}
+
+.section-title::after{
+    content:'';
+    position:absolute;
+    width:90px;
+    height:4px;
+    background:#00d4ff;
+    left:0;
+    bottom:-14px;
+    border-radius:10px;
+}
+
+/* SNAPSHOT */
+
+.snapshot-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.snapshot-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:30px;
+    overflow:hidden;
+    transition:0.4s ease;
+}
+
+.snapshot-card:hover{
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+    box-shadow:
+    0 0 35px rgba(0,212,255,0.15),
+    0 0 60px rgba(0,255,136,0.08);
+}
+
+.snapshot-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.snapshot-content{
+    padding:30px;
+}
+
+.snapshot-content h3{
+    color:#00d4ff;
+    margin-bottom:16px;
+    font-size:24px;
+}
+
+.snapshot-content p{
+    color:#cbd5e1;
+    line-height:1.9;
+    font-size:15px;
+}
+
+/* RESEARCH TREE */
+
+.branch-wrapper{
+    margin-top:70px;
+}
+
+.center-node{
+    width:380px;
+    margin:auto;
+    background:rgba(0,212,255,0.12);
+    border:1px solid rgba(0,212,255,0.22);
+    border-radius:28px;
+    padding:34px;
+    text-align:center;
+    animation:float 5s ease-in-out infinite;
+}
+
+.center-node h3{
+    color:#00d4ff;
+    margin-bottom:14px;
+    font-size:28px;
+}
+
+.center-node p{
+    color:#cbd5e1;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.branch-line{
+    width:4px;
+    height:70px;
+    background:#00d4ff;
+    opacity:0.3;
+    margin:auto;
+}
+
+.branch-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:34px;
+}
+
+.branch-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:30px;
+    overflow:hidden;
+    transition:0.4s ease;
+}
+
+.branch-card:hover{
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+    box-shadow:
+    0 0 35px rgba(0,212,255,0.15),
+    0 0 60px rgba(0,255,136,0.08);
+}
+
+.branch-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.branch-content{
+    padding:32px;
+}
+
+.branch-content h3{
+    color:#00d4ff;
+    margin-bottom:16px;
+    font-size:24px;
+}
+
+.branch-content p{
+    color:#cbd5e1;
+    line-height:1.9;
+    font-size:15px;
+}
+
+/* KPI */
+
+.kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+}
+
+.kpi-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:28px;
+    padding:42px;
+    text-align:center;
+    transition:0.4s ease;
+}
+
+.kpi-card:hover{
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+    box-shadow:
+    0 0 30px rgba(0,212,255,0.15),
+    0 0 60px rgba(0,255,136,0.08);
+}
+
+.counter{
+    font-size:56px;
+    font-weight:700;
+    color:#00d4ff;
+    margin-bottom:14px;
+}
+
+.kpi-card p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* ANALYTICS */
+
+.analytics-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+}
+
+.analytics-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:30px;
+    padding:42px;
+    text-align:center;
+    transition:0.4s ease;
+}
+
+.analytics-card:hover{
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+    box-shadow:
+    0 0 30px rgba(0,212,255,0.15),
+    0 0 60px rgba(0,255,136,0.08);
+}
+
+.circle{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    margin:auto;
+    background:conic-gradient(
+    #00d4ff calc(var(--percent) * 1%),
+    rgba(255,255,255,0.06) 0
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    margin-bottom:24px;
+}
+
+.circle::before{
+    content:'';
+    position:absolute;
+    width:115px;
+    height:115px;
+    background:#06111f;
+    border-radius:50%;
+}
+
+.circle span{
+    position:relative;
+    z-index:1;
+    color:#00d4ff;
+    font-size:28px;
+    font-weight:700;
+}
+
+.analytics-card h3{
+    color:#00d4ff;
+    margin-bottom:14px;
+    font-size:22px;
+}
+
+.analytics-card p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,0.06);
+    transition:0.4s ease;
+}
+
+.gallery-item:hover{
+    transform:translateY(-10px);
+    box-shadow:
+    0 0 35px rgba(0,212,255,0.18),
+    0 0 60px rgba(0,255,136,0.08);
+}
+
+.gallery-item img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    transition:0.5s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.05);
+}
+
+.gallery-overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:24px;
+    background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);
+}
+
+.gallery-overlay h3{
+    color:#00d4ff;
+    margin-bottom:8px;
+    font-size:22px;
+}
+
+.gallery-overlay p{
+    color:#d1d5db;
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* SUMMARY */
+
+.summary-box{
+    margin-top:60px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:30px;
+    padding:45px;
+    color:#cbd5e1;
+    line-height:2;
+    font-size:16px;
+}
+
+footer{
+    text-align:center;
+    padding:70px;
+    border-top:1px solid rgba(255,255,255,0.05);
+    color:#94a3b8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.hero,
+.snapshot-grid,
+.branch-grid,
+.kpi-grid,
+.analytics-grid,
+.gallery-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-text h1{
+    font-size:52px;
+}
+
+.section-title{
+    font-size:36px;
+}
+
+.center-node{
+    width:100%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h1>AK.</h1>
+
+<a href="index.html">← Back to Portfolio</a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<div class="hero-badge">
+MARKET RESEARCH • FUTURE MOBILITY • BUSINESS ANALYTICS
+</div>
+
+<h1>
+Mobility Research &
+Technology Market Insights
+</h1>
+
+<p>
+This project combines analytical exploration of EV infrastructure,
+future transportation systems,
+drone-enabled logistics,
+and emerging mobility technologies through MBA research projects and structured market analysis.
+
+The research focused on understanding technology adoption,
+consumer behaviour,
+road infrastructure readiness,
+delivery innovation,
+and operational feasibility across evolving transportation ecosystems.
+</p>
+
+</div>
+
+<div class="hero-image">
+
+<img src="ev-road-tech.jpg" alt="Mobility Research">
+
+<div class="analytics-overlay">
+
+<h3>Research Focus</h3>
+
+<p>
+Mobility infrastructure,
+future logistics,
+consumer insights,
+technology adoption,
+and operational market analysis.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SNAPSHOT -->
+
+<section>
+
+<h2 class="section-title">Project Research Snapshot</h2>
+
+<div class="snapshot-grid">
+
+<div class="snapshot-card">
+
+<img src="ev-road-tech.jpg">
+
+<div class="snapshot-content">
+
+<h3>Future Infrastructure Research</h3>
+
+<p>
+Explored how smart charging roads,
+mobility accessibility,
+and sustainable transportation infrastructure influence future transportation ecosystems and technology adoption.
+</p>
+
+</div>
+
+</div>
+
+<div class="snapshot-card">
+
+<img src="drone-logistics.jpg">
+
+<div class="snapshot-content">
+
+<h3>Drone Logistics Exploration</h3>
+
+<p>
+Analyzed drone-enabled delivery systems,
+future logistics applications,
+and operational improvements associated with last-mile delivery optimization and smart mobility solutions.
+</p>
+
+</div>
+
+</div>
+
+<div class="snapshot-card">
+
+<img src="ev-charging-lane.jpg">
+
+<div class="snapshot-content">
+
+<h3>Consumer & Market Insights</h3>
+
+<p>
+Studied customer behaviour,
+technology adoption patterns,
+pricing sensitivity,
+and awareness trends across emerging mobility and transportation ecosystems.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RESEARCH TREE -->
+
+<section>
+
+<h2 class="section-title">Research Architecture</h2>
+
+<div class="branch-wrapper">
+
+<div class="center-node">
+
+<h3>Mobility & Market Intelligence</h3>
+
+<p>
+Research-driven exploration of future transportation systems,
+mobility infrastructure,
+consumer behaviour,
+drone logistics,
+and business-oriented operational insights.
+</p>
+
+</div>
+
+<div class="branch-line"></div>
+
+<div class="branch-grid">
+
+<div class="branch-card">
+
+<img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop">
+
+<div class="branch-content">
+
+<h3>Consumer Behaviour Analysis</h3>
+
+<p>
+Explored customer awareness,
+technology acceptance,
+mobility preferences,
+and behavioural insights associated with sustainable transportation systems and evolving market ecosystems.
+</p>
+
+</div>
+
+</div>
+
+<div class="branch-card">
+
+<img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?q=80&w=1200&auto=format&fit=crop">
+
+<div class="branch-content">
+
+<h3>Infrastructure & Feasibility Research</h3>
+
+<p>
+Analyzed charging accessibility,
+road infrastructure readiness,
+transportation feasibility,
+and operational support systems influencing future mobility adoption.
+</p>
+
+</div>
+
+</div>
+
+<div class="branch-card">
+
+<img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=1200&auto=format&fit=crop">
+
+<div class="branch-content">
+
+<h3>Drone Logistics & Delivery Systems</h3>
+
+<p>
+Explored operational feasibility of drone-enabled delivery ecosystems,
+logistics innovation,
+supply chain efficiency,
+and smart transportation opportunities.
+</p>
+
+</div>
+
+</div>
+
+<div class="branch-card">
+
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop">
+
+<div class="branch-content">
+
+<h3>Business Analytics & Insights</h3>
+
+<p>
+Developed understanding of trend visualization,
+market insight generation,
+dashboard interpretation,
+and analytical presentation through research-oriented project work.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- KPI -->
+
+<section>
+
+<h2 class="section-title">Research KPI Dashboard</h2>
+
+<div class="kpi-grid">
+
+<div class="kpi-card">
+<div class="counter" data-target="146">0</div>
+<p>Survey Responses Analyzed</p>
+</div>
+
+<div class="kpi-card">
+<div class="counter" data-target="72">0</div>
+<p>Technology Awareness Insights</p>
+</div>
+
+<div class="kpi-card">
+<div class="counter" data-target="57">0</div>
+<p>Operational Feasibility Observations</p>
+</div>
+
+<div class="kpi-card">
+<div class="counter" data-target="4">0</div>
+<p>Research Domains Explored</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ANALYTICS -->
+
+<section>
+
+<h2 class="section-title">Market Analytics Indicators</h2>
+
+<div class="analytics-grid">
+
+<div class="analytics-card">
+
+<div class="circle" style="--percent:83;">
+<span>83%</span>
+</div>
+
+<h3>Research Interpretation</h3>
+
+<p>
+Exposure to market understanding,
+survey interpretation,
+and analytical business research concepts.
+</p>
+
+</div>
+
+<div class="analytics-card">
+
+<div class="circle" style="--percent:79;">
+<span>79%</span>
+</div>
+
+<h3>Consumer Insights</h3>
+
+<p>
+Understanding of customer behaviour,
+mobility adoption trends,
+and market-oriented analytical observations.
+</p>
+
+</div>
+
+<div class="analytics-card">
+
+<div class="circle" style="--percent:86;">
+<span>86%</span>
+</div>
+
+<h3>Operational Trend Mapping</h3>
+
+<p>
+Analytical exploration of infrastructure growth,
+future logistics ecosystems,
+and transportation-oriented operational opportunities.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RESEARCH GALLERY -->
+
+<section>
+
+<h2 class="section-title">Research Gallery</h2>
+
+<div class="gallery-grid">
+
+<div class="gallery-item">
+
+<img src="ev-road-tech.jpg">
+
+<div class="gallery-overlay">
+
+<h3>Wireless EV Road Technology</h3>
+
+<p>
+Research exploration of smart charging road infrastructure and future transportation innovation.
+</p>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
+<img src="ev-charging-lane.jpg">
+
+<div class="gallery-overlay">
+
+<h3>Smart Charging Infrastructure</h3>
+
+<p>
+Analyzed charging accessibility, road feasibility, and sustainable mobility ecosystems.
+</p>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
+<img src="drone-logistics.jpg">
+
+<div class="gallery-overlay">
+
+<h3>Drone Logistics Systems</h3>
+
+<p>
+Studied future delivery ecosystems and operational efficiency in smart logistics systems.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="summary-box">
+
+This project reflects analytical exposure to mobility research,
+future transportation systems,
+consumer insight generation,
+drone logistics exploration,
+and operational feasibility analysis through MBA research projects and structured analytical learning.
+
+Through survey interpretation,
+trend visualization,
+market analytics,
+and technology-oriented research analysis,
+I developed understanding of how businesses evaluate emerging mobility ecosystems,
+future logistics infrastructure,
+and evolving transportation opportunities.
+
+</div>
+
+</section>
+
+<footer>
+
+Mobility Research & Market Analytics • Aditya Kumar
+
+</footer>
+
+<script>
+
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+
+counter.innerText = '0';
+
+const updateCounter = () => {
+
+const target = +counter.getAttribute('data-target');
+
+const current = +counter.innerText;
+
+const increment = target / 80;
+
+if(current < target){
+
+counter.innerText = `${Math.ceil(current + increment)}`;
+
+setTimeout(updateCounter,25);
+
+} else {
+
+if(target === 72 || target === 57){
+counter.innerText = target + '%';
+} else {
+counter.innerText = target + '+';
+}
+
+}
+
+};
+
+updateCounter();
+
+});
+
+</script>
+
+</body>
+
+</html>

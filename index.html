@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aditya Kumar | MBA Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#0b0f19;
+color:white;
+overflow-x:hidden;
+animation:fadeIn 1.2s ease;
+}
+
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top left,#1d4ed840,transparent 30%),
+radial-gradient(circle at bottom right,#06b6d430,transparent 30%);
+z-index:-1;
+animation:bgMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.08);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
+
+@keyframes slideUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-10px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+nav{
+width:100%;
+padding:24px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+background:rgba(10,15,25,0.72);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+z-index:1000;
+}
+
+nav h1{
+color:#38bdf8;
+font-size:24px;
+font-weight:700;
+letter-spacing:1px;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#cbd5e1;
+position:relative;
+transition:0.3s ease;
+font-size:15px;
+}
+
+nav ul li a::after{
+content:'';
+position:absolute;
+width:0%;
+height:2px;
+left:0;
+bottom:-6px;
+background:#38bdf8;
+transition:0.3s ease;
+}
+
+nav ul li a:hover{
+color:#38bdf8;
+}
+
+nav ul li a:hover::after{
+width:100%;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:140px 8% 100px;
+gap:60px;
+}
+
+.hero-left{
+flex:1;
+animation:slideUp 1s ease;
+}
+
+.hero-left h3{
+color:#38bdf8;
+margin-bottom:18px;
+letter-spacing:2px;
+font-size:14px;
+font-weight:600;
+}
+
+.hero-left h1{
+font-size:76px;
+line-height:1.05;
+margin-bottom:18px;
+}
+
+.hero-left h2{
+color:#94a3b8;
+font-size:28px;
+font-weight:400;
+margin-bottom:30px;
+}
+
+.hero-left p{
+color:#cbd5e1;
+line-height:2;
+margin-bottom:40px;
+max-width:760px;
+font-size:16px;
+text-align:justify;
+}
+
+.buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 30px;
+border-radius:14px;
+text-decoration:none;
+font-weight:600;
+transition:0.35s ease;
+}
+
+.btn-primary{
+background:#38bdf8;
+color:#0b0f19;
+box-shadow:0 0 25px rgba(56,189,248,0.22);
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+box-shadow:0 0 35px rgba(56,189,248,0.35);
+}
+
+.btn-secondary{
+border:1px solid #38bdf8;
+color:#38bdf8;
+}
+
+.btn-secondary:hover{
+background:#38bdf8;
+color:#0b0f19;
+transform:translateY(-5px);
+}
+
+.hero-right{
+flex:1;
+display:flex;
+justify-content:center;
+animation:slideUp 1.2s ease;
+}
+
+.hero-right img{
+width:360px;
+border-radius:28px;
+object-fit:cover;
+border:2px solid rgba(255,255,255,0.08);
+box-shadow:
+0 0 40px rgba(56,189,248,0.18),
+0 0 100px rgba(56,189,248,0.08);
+transition:0.4s ease;
+animation:float 5s ease-in-out infinite;
+}
+
+.hero-right img:hover{
+transform:scale(1.03);
+}
+
+/* GLOBAL */
+
+section{
+padding:110px 8%;
+animation:slideUp 1s ease;
+}
+
+.section-title{
+font-size:46px;
+margin-bottom:55px;
+position:relative;
+font-weight:700;
+}
+
+.section-title::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-14px;
+width:90px;
+height:4px;
+background:#38bdf8;
+border-radius:10px;
+}
+
+/* ABOUT */
+
+.about p{
+color:#cbd5e1;
+line-height:2;
+max-width:980px;
+font-size:17px;
+text-align:justify;
+}
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:32px;
+margin-top:50px;
+}
+
+.card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+padding:34px;
+border-radius:28px;
+transition:0.4s ease;
+backdrop-filter:blur(10px);
+color:white;
+position:relative;
+overflow:hidden;
+text-decoration:none;
+display:block;
+}
+
+.card::before{
+content:'';
+position:absolute;
+width:120%;
+height:120%;
+background:linear-gradient(
+130deg,
+transparent,
+rgba(56,189,248,0.05),
+transparent
+);
+top:-100%;
+left:-100%;
+transition:0.7s;
+}
+
+.card:hover::before{
+top:0;
+left:0;
+}
+
+.card:hover{
+transform:translateY(-12px);
+border-color:#38bdf8;
+box-shadow:
+0 0 35px rgba(56,189,248,0.18),
+0 0 70px rgba(56,189,248,0.08);
+}
+
+.card h3{
+margin-bottom:18px;
+color:#38bdf8;
+font-size:24px;
+}
+
+.card p{
+color:#cbd5e1;
+line-height:1.9;
+font-size:15px;
+text-align:justify;
+}
+
+/* NEW BUSINESS DOMAIN SECTION */
+
+.exposure-wrapper{
+display:grid;
+grid-template-columns:1.1fr 1.4fr;
+gap:40px;
+align-items:start;
+margin-top:60px;
+}
+
+.exposure-main{
+background:
+linear-gradient(
+145deg,
+rgba(56,189,248,0.12),
+rgba(255,255,255,0.03)
+);
+border:1px solid rgba(255,255,255,0.06);
+padding:45px;
+border-radius:34px;
+position:sticky;
+top:120px;
+overflow:hidden;
+}
+
+.exposure-main::before{
+content:'';
+position:absolute;
+width:280px;
+height:280px;
+background:rgba(56,189,248,0.08);
+border-radius:50%;
+top:-100px;
+right:-100px;
+filter:blur(30px);
+}
+
+.main-badge{
+display:inline-block;
+padding:10px 18px;
+background:rgba(56,189,248,0.12);
+border:1px solid rgba(56,189,248,0.25);
+border-radius:30px;
+color:#38bdf8;
+font-size:12px;
+letter-spacing:1px;
+margin-bottom:28px;
+font-weight:600;
+}
+
+.exposure-main h3{
+font-size:42px;
+line-height:1.2;
+margin-bottom:28px;
+position:relative;
+z-index:2;
+}
+
+.exposure-main p{
+color:#cbd5e1;
+line-height:2;
+font-size:15px;
+text-align:justify;
+margin-bottom:36px;
+position:relative;
+z-index:2;
+}
+
+.main-stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+position:relative;
+z-index:2;
+}
+
+.stat-box{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.05);
+padding:22px;
+border-radius:22px;
+text-align:center;
+transition:0.35s ease;
+}
+
+.stat-box:hover{
+transform:translateY(-6px);
+border-color:#38bdf8;
+}
+
+.stat-box h4{
+font-size:30px;
+color:#38bdf8;
+margin-bottom:8px;
+}
+
+.stat-box span{
+font-size:13px;
+color:#cbd5e1;
+}
+
+.exposure-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:28px;
+}
+
+.exposure-card{
+position:relative;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:30px;
+padding:34px;
+overflow:hidden;
+text-decoration:none;
+transition:0.45s ease;
+min-height:320px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+.card-glow{
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(56,189,248,0.08);
+border-radius:50%;
+top:-70px;
+right:-70px;
+filter:blur(25px);
+transition:0.5s ease;
+}
+
+.exposure-card:hover .card-glow{
+transform:scale(1.3);
+}
+
+.exposure-card:hover{
+transform:translateY(-12px);
+border-color:#38bdf8;
+box-shadow:
+0 0 35px rgba(56,189,248,0.18),
+0 0 70px rgba(56,189,248,0.08);
+}
+
+.card-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:26px;
+position:relative;
+z-index:2;
+}
+
+.card-icon{
+font-size:34px;
+}
+
+.card-tag{
+padding:8px 14px;
+background:rgba(56,189,248,0.10);
+border-radius:20px;
+font-size:11px;
+letter-spacing:1px;
+color:#38bdf8;
+font-weight:600;
+}
+
+.exposure-card h3{
+font-size:28px;
+margin-bottom:18px;
+color:white;
+position:relative;
+z-index:2;
+}
+
+.exposure-card p{
+color:#cbd5e1;
+line-height:1.9;
+font-size:14px;
+text-align:justify;
+position:relative;
+z-index:2;
+margin-bottom:26px;
+}
+
+.explore-btn{
+margin-top:auto;
+color:#38bdf8;
+font-weight:600;
+font-size:14px;
+position:relative;
+z-index:2;
+transition:0.3s ease;
+}
+
+.exposure-card:hover .explore-btn{
+transform:translateX(6px);
+}
+
+/* FOOTER */
+
+footer{
+padding:90px 8%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.01);
+backdrop-filter:blur(8px);
+}
+
+footer h2{
+margin-bottom:24px;
+font-size:38px;
+}
+
+footer p{
+color:#94a3b8;
+margin-bottom:12px;
+font-size:15px;
+line-height:1.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+.exposure-wrapper{
+grid-template-columns:1fr;
+}
+
+.exposure-main{
+position:relative;
+top:0;
+}
+
+}
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column-reverse;
+text-align:center;
+padding-top:170px;
+}
+
+.hero-left h1{
+font-size:54px;
+}
+
+.hero-left h2{
+font-size:24px;
+}
+
+.hero-right img{
+width:280px;
+}
+
+.buttons{
+justify-content:center;
+}
+
+nav ul{
+display:none;
+}
+
+.section-title{
+font-size:36px;
+}
+
+.exposure-grid{
+grid-template-columns:1fr;
+}
+
+.main-stats{
+grid-template-columns:1fr;
+}
+
+.exposure-main h3{
+font-size:34px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h1>AK.</h1>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Domains</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-left">
+
+<h3>BUSINESS • OPERATIONS • ANALYTICS • DIGITAL WORKFLOWS</h3>
+
+<h1>Aditya Kumar</h1>
+
+<h2>MBA Graduate | Operations • Marketing • HR</h2>
+
+<p>
+MBA graduate with exposure across business operations,
+marketing operations,
+supply chain workflows,
+inventory coordination,
+analytics,
+digital workflow systems,
+and people-oriented business functions.
+
+Interested in understanding how businesses improve performance through operational efficiency,
+digital transformation,
+customer-focused strategies,
+and structured analytical workflows.
+</p>
+
+<div class="buttons">
+
+<a href="resume.pdf" download class="btn btn-primary">
+Download Resume
+</a>
+
+<a href="https://linkedin.com/in/aditya4000" target="_blank" class="btn btn-secondary">
+LinkedIn
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<img src="profile.png" alt="Aditya Kumar">
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<h2 class="section-title">About Me</h2>
+
+<p>
+MBA graduate specialized in Operations, Marketing, and Human Resources with exposure across supply chain workflows, business analytics, digital marketing systems, AI-assisted productivity tools, and operational coordination environments.
+
+Experienced in understanding how businesses improve efficiency through structured workflows, analytical thinking, customer-oriented strategies, workforce systems, and technology-driven business processes. Passionate about combining operational understanding with modern digital systems to create organized, efficient, and growth-oriented business solutions.
+
+Explored multiple business domains through internship exposure, market research projects, workflow system development, HR analytics dashboards, and AI-supported organizational systems. Interested in business operations, analytics, workflow optimization, digital transformation, and strategic coordination roles within modern organizations.
+</p>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+<h2 class="section-title">Experience</h2>
+
+<div class="cards">
+
+<a href="internship-workflow.html" class="card">
+
+<h3>Supply Chain Internship</h3>
+
+<p>
+Completed internship exposure focused on business operations, workflow coordination, inventory handling, and process-oriented organizational systems at Freshneer Foods & Services Pvt. Ltd. Gained practical understanding of operational execution, warehouse coordination, dispatch monitoring, stock movement processes, and day-to-day workflow management within a business environment.
+
+Worked closely with operational activities involving inventory tracking, reporting coordination, vendor communication, and workflow monitoring while understanding how structured operational systems contribute to business efficiency and organizational productivity. Developed exposure to logistics coordination, operational planning concepts, process observation, and business communication practices during the internship period.
+
+Additionally explored reporting structures, workflow documentation, operational analysis, and coordination systems while improving professional adaptability, analytical thinking, teamwork, and understanding of real-time business operations within a fast-paced organizational setup.
+</p>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2 class="section-title">Projects & Research</h2>
+
+<div class="cards">
+
+<a href="digital-marketing.html" class="card">
+
+<h3>Digital Marketing & Campaign Workflows</h3>
+
+<p>
+Developed exposure to digital marketing concepts including campaign planning,
+content structuring,
+audience engagement,
+SEO understanding,
+social media workflow systems,
+and AI-assisted marketing productivity tools through certification learning and practical workflow exploration.
+</p>
+
+</a>
+
+<a href="drone-logistics.html" class="card">
+
+<h3>Drone Logistics Operations</h3>
+
+<p>
+Research project focused on drone-enabled logistics ecosystems,
+AI-supported delivery systems,
+operational optimization,
+and smart transportation innovation.
+</p>
+
+</a>
+
+<a href="digital-dock.html" class="card">
+
+<h3>Digital Dock & Workflow Systems</h3>
+
+<p>
+Self-developed workflow project focused on productivity systems,
+digital organization,
+AI-supported structuring,
+workflow management,
+and business-oriented coordination approaches.
+</p>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- BUSINESS DOMAINS -->
+
+<section id="skills">
+
+<h2 class="section-title">Business Domains & Exposure</h2>
+
+<div class="exposure-wrapper">
+
+<!-- LEFT PANEL -->
+
+<div class="exposure-main">
+
+<div class="main-badge">
+MULTI DOMAIN BUSINESS EXPOSURE
+</div>
+
+<h3>
+Operations,
+Marketing,
+HR &
+AI Driven Workflows
+</h3>
+
+<p>
+Developed business-oriented exposure across operational coordination,
+market research,
+workforce analytics,
+inventory systems,
+customer-oriented workflows,
+and AI-assisted productivity systems through MBA learning,
+internship experience,
+research projects,
+and self-driven digital exploration.
+</p>
+
+<div class="main-stats">
+
+<div class="stat-box">
+
+<h4>4+</h4>
+
+<span>Business Domains</span>
+
+</div>
+
+<div class="stat-box">
+
+<h4>3</h4>
+
+<span>Major Projects</span>
+
+</div>
+
+<div class="stat-box">
+
+<h4>2026</h4>
+
+<span>MBA Graduate</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT PANEL -->
+
+<div class="exposure-grid">
+
+<!-- OPERATIONS -->
+
+<a href="internship-workflow.html" class="exposure-card">
+
+<div class="card-glow"></div>
+
+<div class="card-top">
+
+<div class="card-icon">⚙️</div>
+
+<div class="card-tag">
+OPERATIONS
+</div>
+
+</div>
+
+<h3>Business Operations</h3>
+
+<p>
+Inventory workflows,
+logistics coordination,
+vendor communication,
+warehouse execution,
+and operational reporting exposure.
+</p>
+
+<div class="explore-btn">
+Explore Workflow →
+</div>
+
+</a>
+
+<!-- MARKETING -->
+
+<a href="market-research.html" class="exposure-card">
+
+<div class="card-glow"></div>
+
+<div class="card-top">
+
+<div class="card-icon">📈</div>
+
+<div class="card-tag">
+MARKETING
+</div>
+
+</div>
+
+<h3>Marketing Operations</h3>
+
+<p>
+Consumer insights,
+market analysis,
+business intelligence,
+research interpretation,
+and customer-oriented strategic understanding.
+</p>
+
+<div class="explore-btn">
+Explore Research →
+</div>
+
+</a>
+
+<!-- HR -->
+
+<a href="hr-dashboard.html" class="exposure-card">
+
+<div class="card-glow"></div>
+
+<div class="card-top">
+
+<div class="card-icon">👥</div>
+
+<div class="card-tag">
+HUMAN RESOURCES
+</div>
+
+</div>
+
+<h3>HR Analytics</h3>
+
+<p>
+Workforce analytics,
+employee insight systems,
+organizational behaviour,
+dashboard interpretation,
+and HR-oriented business exposure.
+</p>
+
+<div class="explore-btn">
+Explore Dashboard →
+</div>
+
+</a>
+
+<!-- AI -->
+
+<a href="ai-workflows.html" class="exposure-card">
+
+<div class="card-glow"></div>
+
+<div class="card-top">
+
+<div class="card-icon">🤖</div>
+
+<div class="card-tag">
+AI WORKFLOWS
+</div>
+
+</div>
+
+<h3>AI Assisted Systems</h3>
+
+<p>
+AI-supported workflow structuring,
+digital productivity,
+business presentation systems,
+and analytical workflow optimization.
+</p>
+
+<div class="explore-btn">
+Explore AI Systems →
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<footer id="contact">
+
+<h2>Let’s Connect</h2>
+
+<p>
+Open to opportunities across Business Operations,
+Marketing Operations,
+HR,
+Analytics,
+Coordination,
+and Digital Workflow oriented business roles.
+</p>
+
+<p>📞 +91 9971839438</p>
+
+<p>📧 aadityaakumar0007@gmail.com</p>
+
+<p>📍 Ghaziabad, Uttar Pradesh</p>
+
+<p>🔗 linkedin.com/in/aditya4000</p>
+
+</footer>
+
+</body>
+
+</html>
