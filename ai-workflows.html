@@ -6,416 +6,490 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Workflow Systems | Aditya Kumar</title>
+<title>AI Workflows & Digital Productivity | Aditya Kumar</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:'Inter',sans-serif;
-background:#07111f;
-color:white;
-overflow-x:hidden;
+    font-family:'Inter',sans-serif;
+    background:#06111f;
+    color:white;
+    overflow-x:hidden;
 }
-
-/* BACKGROUND */
 
 body::before{
-content:'';
-position:fixed;
-width:700px;
-height:700px;
-background:radial-gradient(circle,#38bdf830 0%,transparent 70%);
-top:-250px;
-right:-250px;
-z-index:-2;
-animation:floatGlow 10s ease-in-out infinite alternate;
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#00d4ff25,transparent 30%),
+    radial-gradient(circle at bottom right,#00ff8840,transparent 30%);
+    z-index:-1;
 }
-
-body::after{
-content:'';
-position:fixed;
-width:650px;
-height:650px;
-background:radial-gradient(circle,#06b6d420 0%,transparent 70%);
-bottom:-250px;
-left:-250px;
-z-index:-2;
-animation:floatGlow2 12s ease-in-out infinite alternate;
-}
-
-@keyframes floatGlow{
-from{
-transform:translateY(0px);
-}
-to{
-transform:translateY(60px);
-}
-}
-
-@keyframes floatGlow2{
-from{
-transform:translateX(0px);
-}
-to{
-transform:translateX(60px);
-}
-}
-
-/* NAVBAR */
 
 nav{
-width:100%;
-padding:24px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:fixed;
-top:0;
-left:0;
-z-index:1000;
-background:rgba(5,8,22,0.75);
-backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(255,255,255,0.05);
+    width:100%;
+    padding:22px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    background:rgba(6,17,31,0.85);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    z-index:1000;
 }
 
-.logo{
-font-size:2rem;
-font-weight:800;
-color:#38bdf8;
+nav h1{
+    color:#00d4ff;
+    font-size:24px;
+    font-weight:700;
 }
 
 nav a{
-text-decoration:none;
-color:#d1d5db;
-transition:0.3s ease;
-font-size:15px;
+    text-decoration:none;
+    color:#00d4ff;
+    border:1px solid #00d4ff;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:0.3s ease;
 }
 
 nav a:hover{
-color:#38bdf8;
+    background:#00d4ff;
+    color:#06111f;
+}
+
+section{
+    padding:110px 8%;
 }
 
 /* HERO */
 
 .hero{
-padding:170px 8% 120px;
-display:grid;
-grid-template-columns:1.1fr 0.9fr;
-gap:70px;
-align-items:center;
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
 }
 
-.hero-tag{
-display:inline-block;
-padding:12px 22px;
-background:rgba(56,189,248,0.12);
-border:1px solid rgba(56,189,248,0.25);
-border-radius:30px;
-color:#38bdf8;
-font-size:13px;
-letter-spacing:2px;
-margin-bottom:28px;
+.hero-text{
+    animation:fadeUp 1s ease;
 }
 
-.hero h1{
-font-size:76px;
-line-height:1.05;
-margin-bottom:28px;
+.hero-badge{
+    color:#00d4ff;
+    letter-spacing:2px;
+    font-size:14px;
+    margin-bottom:22px;
+    font-weight:600;
 }
 
-.hero p{
-font-size:16px;
-line-height:2;
-color:#cbd5e1;
-text-align:justify;
+.hero-text h1{
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:24px;
 }
 
-.hero-box{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
-padding:42px;
-border-radius:34px;
-position:relative;
-overflow:hidden;
+.hero-text p{
+    color:#cbd5e1;
+    line-height:2;
+    font-size:17px;
 }
 
-.hero-box::before{
-content:'';
-position:absolute;
-width:220px;
-height:220px;
-background:rgba(56,189,248,0.08);
-border-radius:50%;
-top:-80px;
-right:-80px;
-filter:blur(30px);
+.hero-image{
+    position:relative;
 }
 
-.hero-box h3{
-font-size:32px;
-margin-bottom:24px;
-color:#38bdf8;
-position:relative;
-z-index:2;
+.hero-image img{
+    width:100%;
+    height:640px;
+    object-fit:cover;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:
+    0 0 40px rgba(0,212,255,0.15),
+    0 0 80px rgba(0,255,136,0.08);
 }
 
-.hero-box ul{
-padding-left:20px;
-position:relative;
-z-index:2;
+.ai-overlay{
+    position:absolute;
+    bottom:-25px;
+    left:-20px;
+    width:280px;
+    background:rgba(8,22,40,0.92);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    padding:24px;
+    backdrop-filter:blur(14px);
+    box-shadow:0 0 30px rgba(0,212,255,0.15);
 }
 
-.hero-box li{
-margin-bottom:16px;
-line-height:1.8;
-color:#d1d5db;
+.ai-overlay h3{
+    color:#00d4ff;
+    margin-bottom:12px;
 }
 
-/* GLOBAL */
+.ai-overlay p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:14px;
+}
 
-section{
-padding:120px 8%;
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
 }
 
 .section-title{
-font-size:64px;
-font-weight:800;
-margin-bottom:14px;
-line-height:1.1;
+    font-size:44px;
+    margin-bottom:70px;
+    position:relative;
 }
 
-.section-line{
-width:90px;
-height:4px;
-background:#38bdf8;
-border-radius:20px;
-margin-bottom:60px;
+.section-title::after{
+    content:'';
+    position:absolute;
+    width:90px;
+    height:4px;
+    background:#00d4ff;
+    left:0;
+    bottom:-14px;
+    border-radius:10px;
 }
 
-/* PIPELINE */
+/* PIPELINE FIXED */
 
-.workflow-container{
-display:flex;
-align-items:center;
-gap:28px;
-overflow-x:auto;
-padding:30px 10px;
-scrollbar-width:none;
-scroll-behavior:smooth;
+.pipeline{
+    display:flex;
+    align-items:center;
+    gap:26px;
+    overflow-x:auto;
+    padding:20px 10px;
+    scrollbar-width:none;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
 }
 
-.workflow-container::-webkit-scrollbar{
-display:none;
+.pipeline::-webkit-scrollbar{
+    display:none;
 }
 
-.workflow-card{
-min-width:290px;
-max-width:290px;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
-border-radius:32px;
-padding:38px;
-position:relative;
-overflow:hidden;
-backdrop-filter:blur(16px);
-transition:0.45s ease;
-flex-shrink:0;
+.pipeline-box{
+    min-width:240px;
+    max-width:240px;
+    padding:34px 24px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    text-align:center;
+    transition:0.4s ease;
+    animation:float 5s ease-in-out infinite;
+    flex-shrink:0;
 }
 
-.workflow-card::before{
-content:'';
-position:absolute;
-width:180px;
-height:180px;
-background:rgba(56,189,248,0.08);
-border-radius:50%;
-top:-70px;
-right:-70px;
-filter:blur(25px);
-transition:0.5s ease;
+.pipeline-box:hover{
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+    box-shadow:
+    0 0 35px rgba(0,212,255,0.15),
+    0 0 60px rgba(0,255,136,0.08);
 }
 
-.workflow-card:hover::before{
-transform:scale(1.3);
+.pipeline-box h3{
+    color:#00d4ff;
+    margin-bottom:14px;
+    font-size:22px;
 }
 
-.workflow-card:hover{
-transform:translateY(-10px);
-border-color:#38bdf8;
-box-shadow:
-0 0 35px rgba(56,189,248,0.18),
-0 0 80px rgba(56,189,248,0.08);
+.pipeline-box p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:14px;
 }
 
-.workflow-number{
-font-size:14px;
-font-weight:700;
-letter-spacing:2px;
-color:#38bdf8;
-margin-bottom:22px;
-position:relative;
-z-index:2;
-}
-
-.workflow-card h3{
-font-size:34px;
-line-height:1.2;
-margin-bottom:22px;
-color:#38bdf8;
-position:relative;
-z-index:2;
-}
-
-.workflow-card p{
-font-size:15px;
-line-height:2;
-color:#cbd5e1;
-position:relative;
-z-index:2;
-text-align:justify;
-}
-
-.workflow-arrow{
-font-size:46px;
-font-weight:700;
-color:#38bdf8;
-animation:arrowMove 1.8s infinite alternate;
-flex-shrink:0;
+.arrow{
+    font-size:34px;
+    color:#00d4ff;
+    flex-shrink:0;
+    animation:arrowMove 1.5s infinite alternate;
 }
 
 @keyframes arrowMove{
 
-from{
-transform:translateX(0px);
-opacity:0.7;
+    from{
+        transform:translateX(0px);
+        opacity:0.7;
+    }
+
+    to{
+        transform:translateX(8px);
+        opacity:1;
+    }
+
 }
 
-to{
-transform:translateX(10px);
-opacity:1;
-}
-
-}
-
-/* NEW AI TOOLS SECTION */
+/* AI TOOLS */
 
 .tools-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
 }
 
 .tool-card{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
-border-radius:30px;
-padding:36px;
-transition:0.4s ease;
-position:relative;
-overflow:hidden;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:30px;
+    padding:40px;
+    transition:0.4s ease;
+    position:relative;
+    overflow:hidden;
 }
 
 .tool-card::before{
-content:'';
-position:absolute;
-width:160px;
-height:160px;
-background:rgba(56,189,248,0.08);
-border-radius:50%;
-top:-70px;
-right:-70px;
-filter:blur(25px);
+    content:'';
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:rgba(0,212,255,0.06);
+    border-radius:50%;
+    top:-40px;
+    right:-40px;
 }
 
 .tool-card:hover{
-transform:translateY(-10px);
-border-color:#38bdf8;
-box-shadow:0 0 30px rgba(56,189,248,0.18);
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+    box-shadow:
+    0 0 35px rgba(0,212,255,0.15),
+    0 0 60px rgba(0,255,136,0.08);
+}
+
+.tool-icon{
+    font-size:48px;
+    margin-bottom:22px;
+    position:relative;
+    z-index:2;
 }
 
 .tool-card h3{
-font-size:28px;
-margin-bottom:20px;
-color:#38bdf8;
-position:relative;
-z-index:2;
+    color:#00d4ff;
+    margin-bottom:18px;
+    font-size:24px;
+    position:relative;
+    z-index:2;
 }
 
-.tool-card p{
-line-height:1.9;
-font-size:15px;
-color:#cbd5e1;
-position:relative;
-z-index:2;
-text-align:justify;
+.tool-card ul{
+    position:relative;
+    z-index:2;
+    padding-left:18px;
 }
 
-/* CHART */
-
-.chart-box{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
-border-radius:34px;
-padding:40px;
-margin-top:50px;
+.tool-card li{
+    color:#cbd5e1;
+    margin-bottom:12px;
+    line-height:1.7;
+    font-size:15px;
 }
 
-canvas{
-max-height:420px;
+/* DIGITAL MARKETING */
+
+.marketing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.marketing-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:30px;
+    overflow:hidden;
+    transition:0.4s ease;
+}
+
+.marketing-card:hover{
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+    box-shadow:
+    0 0 35px rgba(0,212,255,0.15),
+    0 0 60px rgba(0,255,136,0.08);
+}
+
+.marketing-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.marketing-content{
+    padding:34px;
+}
+
+.marketing-content h3{
+    color:#00d4ff;
+    margin-bottom:18px;
+    font-size:24px;
+}
+
+.marketing-content p{
+    color:#cbd5e1;
+    line-height:1.9;
+    font-size:15px;
+}
+
+/* PROJECT MAPPING */
+
+.mapping-table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:24px;
+}
+
+.mapping-table th{
+    background:#00d4ff;
+    color:#06111f;
+    padding:22px;
+    text-align:left;
+    font-size:17px;
+}
+
+.mapping-table td{
+    background:rgba(255,255,255,0.03);
+    padding:22px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* KPI */
+
+.kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+}
+
+.kpi-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:28px;
+    padding:42px;
+    text-align:center;
+    transition:0.4s ease;
+}
+
+.kpi-card:hover{
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+}
+
+.counter{
+    font-size:56px;
+    font-weight:700;
+    color:#00d4ff;
+    margin-bottom:14px;
+}
+
+.kpi-card p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* APPROACH */
+
+.approach-box{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:30px;
+    padding:50px;
+}
+
+.approach-box h3{
+    color:#00d4ff;
+    margin-bottom:24px;
+    font-size:32px;
+}
+
+.approach-box p{
+    color:#cbd5e1;
+    line-height:2;
+    font-size:16px;
 }
 
 /* FOOTER */
 
 footer{
-padding:80px 8%;
-text-align:center;
-border-top:1px solid rgba(255,255,255,0.05);
-color:#9ca3af;
-line-height:2;
+    text-align:center;
+    padding:70px;
+    border-top:1px solid rgba(255,255,255,0.05);
+    color:#94a3b8;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:950px){
+@media(max-width:992px){
 
-.hero{
-grid-template-columns:1fr;
+.hero,
+.tools-grid,
+.marketing-grid,
+.kpi-grid{
+    grid-template-columns:1fr;
 }
 
-.hero h1{
-font-size:54px;
+.mapping-table{
+    display:block;
+    overflow-x:auto;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+    grid-template-columns:1fr;
+}
+
+.hero-text h1{
+    font-size:52px;
 }
 
 .section-title{
-font-size:42px;
-}
-
-.workflow-card{
-min-width:260px;
-max-width:260px;
-padding:30px;
-}
-
-.workflow-card h3{
-font-size:28px;
-}
-
-.workflow-arrow{
-font-size:34px;
+    font-size:36px;
 }
 
 }
@@ -428,11 +502,9 @@ font-size:34px;
 
 <nav>
 
-<div class="logo">AK.</div>
+<h1>AK.</h1>
 
-<a href="index.html">
-← Back to Portfolio
-</a>
+<a href="index.html">← Back to Portfolio</a>
 
 </nav>
 
@@ -440,55 +512,51 @@ font-size:34px;
 
 <section class="hero">
 
-<div>
+<div class="hero-text">
 
-<div class="hero-tag">
-AI WORKFLOWS • ANALYTICS • DIGITAL PRODUCTIVITY
+<div class="hero-badge">
+AI WORKFLOWS • DIGITAL PRODUCTIVITY • MODERN BUSINESS SYSTEMS
 </div>
 
 <h1>
-AI Workflow
-& Business
-Systems
+AI Workflows &
+Digital Productivity
 </h1>
 
 <p>
-Explored AI-assisted workflow systems for organizing business processes,
-improving research structuring,
-workflow documentation,
-dashboard planning,
-and productivity-oriented analytical systems.
-
-Focused on understanding how AI tools can support operational efficiency,
-business communication,
-research clarity,
+This section reflects my exposure to AI-assisted workflows,
+digital productivity systems,
+research structuring,
+analytical dashboard planning,
 workflow visualization,
-and presentation-ready outputs within modern organizational environments.
+and business-oriented presentation systems through self-paced learning and practical project implementation.
+
+Alongside MBA coursework and analytical projects,
+I explored how modern AI tools can support operational thinking,
+market research interpretation,
+workflow mapping,
+and professional business communication systems.
 </p>
 
 </div>
 
-<div class="hero-box">
+<div class="hero-image">
 
-<h3>AI Workflow Exposure</h3>
+<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop">
 
-<ul>
+<div class="ai-overlay">
 
-<li>AI-Assisted Workflow Structuring</li>
+<h3>Workflow Focus</h3>
 
-<li>Research Organization Systems</li>
+<p>
+AI-assisted research,
+dashboard ideation,
+workflow visualization,
+business productivity,
+and operational structuring systems.
+</p>
 
-<li>Dashboard Planning Concepts</li>
-
-<li>Business Productivity Workflows</li>
-
-<li>Presentation & Visualization Systems</li>
-
-<li>Analytical Interpretation Support</li>
-
-<li>Digital Documentation Structuring</li>
-
-</ul>
+</div>
 
 </div>
 
@@ -500,87 +568,68 @@ and presentation-ready outputs within modern organizational environments.
 
 <h2 class="section-title">AI Workflow Pipeline</h2>
 
-<div class="section-line"></div>
+<div class="pipeline">
 
-<div class="workflow-container">
-
-<div class="workflow-card">
-
-<div class="workflow-number">01</div>
+<div class="pipeline-box">
 
 <h3>Research Problem</h3>
 
 <p>
 Understanding project objectives,
-workflow direction,
-business requirements,
-and analytical problem statements.
+market requirements,
+and analytical workflow direction.
 </p>
 
 </div>
 
-<div class="workflow-arrow">→</div>
+<div class="arrow">→</div>
 
-<div class="workflow-card">
-
-<div class="workflow-number">02</div>
+<div class="pipeline-box">
 
 <h3>AI Structuring</h3>
 
 <p>
 Using AI systems for organizing workflows,
-research documentation,
-content structuring,
-and clarity improvement.
+structuring documentation,
+and improving research clarity.
 </p>
 
 </div>
 
-<div class="workflow-arrow">→</div>
+<div class="arrow">→</div>
 
-<div class="workflow-card">
-
-<div class="workflow-number">03</div>
+<div class="pipeline-box">
 
 <h3>Data Interpretation</h3>
 
 <p>
-Transforming findings into business-oriented insights,
-analytical observations,
-and structured interpretations.
+Transforming observations into business-oriented insights and analytical interpretations.
 </p>
 
 </div>
 
-<div class="workflow-arrow">→</div>
+<div class="arrow">→</div>
 
-<div class="workflow-card">
-
-<div class="workflow-number">04</div>
+<div class="pipeline-box">
 
 <h3>Dashboard Planning</h3>
 
 <p>
-Creating KPI structures,
-visual workflow systems,
-analytics dashboards,
-and reporting frameworks.
+Visualizing KPIs,
+analytics concepts,
+and structured workflow presentation systems.
 </p>
 
 </div>
 
-<div class="workflow-arrow">→</div>
+<div class="arrow">→</div>
 
-<div class="workflow-card">
-
-<div class="workflow-number">05</div>
+<div class="pipeline-box">
 
 <h3>Presentation</h3>
 
 <p>
-Converting structured insights into visually engaging,
-professional,
-and workflow-oriented outputs.
+Converting analytical insights into visually engaging professional outputs.
 </p>
 
 </div>
@@ -589,52 +638,143 @@ and workflow-oriented outputs.
 
 </section>
 
-<!-- NEW SECTION -->
+<!-- AI TOOLS -->
 
 <section>
 
-<h2 class="section-title">AI Tools & Workflow Exposure</h2>
-
-<div class="section-line"></div>
+<h2 class="section-title">AI-Assisted Workflow Applications</h2>
 
 <div class="tools-grid">
 
 <div class="tool-card">
 
-<h3>AI Productivity Systems</h3>
+<div class="tool-icon">🤖</div>
 
-<p>
-Explored AI-assisted productivity workflows for content organization,
-workflow management,
-research structuring,
-and digital operational support systems.
-</p>
+<h3>ChatGPT</h3>
 
-</div>
+<ul>
 
-<div class="tool-card">
+<li>Workflow visualization & process mapping</li>
 
-<h3>Business Research Assistance</h3>
+<li>Portfolio structuring & content refinement</li>
 
-<p>
-Used AI-supported approaches for analytical understanding,
-business research organization,
-workflow clarity,
-and insight-focused documentation systems.
-</p>
+<li>Research organization & analytical flow</li>
+
+<li>Business-oriented presentation assistance</li>
+
+<li>Operational workflow ideation</li>
+
+</ul>
 
 </div>
 
 <div class="tool-card">
 
-<h3>Presentation & Reporting</h3>
+<div class="tool-icon">🧠</div>
 
-<p>
-Applied AI-supported structuring techniques for dashboard presentation,
-business storytelling,
-visual clarity,
-and workflow-oriented reporting systems.
-</p>
+<h3>Claude AI</h3>
+
+<ul>
+
+<li>Long-form analytical refinement</li>
+
+<li>Business documentation structuring</li>
+
+<li>Research summarization support</li>
+
+<li>Professional content enhancement</li>
+
+<li>Workflow explanation improvement</li>
+
+</ul>
+
+</div>
+
+<div class="tool-card">
+
+<div class="tool-icon">📊</div>
+
+<h3>Excel Analytics</h3>
+
+<ul>
+
+<li>KPI organization & analytical tabulation</li>
+
+<li>Dashboard logic understanding</li>
+
+<li>Structured data interpretation</li>
+
+<li>Business-oriented reporting concepts</li>
+
+<li>Research data organization</li>
+
+</ul>
+
+</div>
+
+<div class="tool-card">
+
+<div class="tool-icon">🎨</div>
+
+<h3>Canva</h3>
+
+<ul>
+
+<li>Presentation layout concepts</li>
+
+<li>Visual storytelling workflows</li>
+
+<li>Creative infographic structuring</li>
+
+<li>Business presentation enhancement</li>
+
+<li>Professional design organization</li>
+
+</ul>
+
+</div>
+
+<div class="tool-card">
+
+<div class="tool-icon">📈</div>
+
+<h3>Power BI Exposure</h3>
+
+<ul>
+
+<li>Dashboard visualization concepts</li>
+
+<li>Business analytics interpretation</li>
+
+<li>Operational reporting workflows</li>
+
+<li>Analytical presentation systems</li>
+
+<li>KPI storytelling exposure</li>
+
+</ul>
+
+</div>
+
+<div class="tool-card">
+
+<div class="tool-icon">📝</div>
+
+<h3>Notion AI</h3>
+
+<ul>
+
+<li>Research management systems</li>
+
+<li>Workflow planning & organization</li>
+
+<li>Learning documentation support</li>
+
+<li>Structured productivity systems</li>
+
+<li>Digital note organization</li>
+
+</ul>
 
 </div>
 
@@ -642,113 +782,254 @@ and workflow-oriented reporting systems.
 
 </section>
 
-<!-- CHART -->
+<!-- DIGITAL MARKETING -->
 
 <section>
 
-<h2 class="section-title">Workflow Exposure Analytics</h2>
+<h2 class="section-title">Digital Marketing Exposure</h2>
 
-<div class="section-line"></div>
+<div class="marketing-grid">
 
-<div class="chart-box">
+<div class="marketing-card">
 
-<canvas id="workflowChart"></canvas>
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="marketing-content">
+
+<h3>Digital Marketing Certification</h3>
+
+<p>
+Completed digital marketing learning exposure through certification-based training focused on digital communication,
+audience engagement,
+campaign understanding,
+social media awareness,
+and marketing-oriented analytical concepts.
+</p>
+
+</div>
+
+</div>
+
+<div class="marketing-card">
+
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop">
+
+<div class="marketing-content">
+
+<h3>Consumer & Market Behaviour</h3>
+
+<p>
+Explored audience behaviour,
+consumer engagement trends,
+market understanding,
+and customer-oriented analytical observations through research projects and business-oriented learning exposure.
+</p>
+
+</div>
+
+</div>
+
+<div class="marketing-card">
+
+<img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop">
+
+<div class="marketing-content">
+
+<h3>Brand & Content Understanding</h3>
+
+<p>
+Exposure to branding communication,
+content presentation concepts,
+social media engagement understanding,
+and audience-oriented marketing observation systems.
+</p>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- FOOTER -->
+<!-- PROJECT MAPPING -->
+
+<section>
+
+<h2 class="section-title">Where AI Supported My Work</h2>
+
+<table class="mapping-table">
+
+<tr>
+
+<th>Project / Workflow</th>
+
+<th>AI & Digital Workflow Usage</th>
+
+</tr>
+
+<tr>
+
+<td>Market Research Project</td>
+
+<td>
+Used AI-assisted structuring for organizing mobility research,
+consumer insights,
+market interpretation,
+and analytical presentation systems.
+</td>
+
+</tr>
+
+<tr>
+
+<td>Internship Workflow System</td>
+
+<td>
+Applied workflow visualization concepts for operational mapping,
+process representation,
+and structured workflow communication.
+</td>
+
+</tr>
+
+<tr>
+
+<td>HR Dashboard Concepts</td>
+
+<td>
+Used analytical structuring concepts for KPI storytelling,
+dashboard organization,
+and HR-oriented presentation systems.
+</td>
+
+</tr>
+
+<tr>
+
+<td>Portfolio Development</td>
+
+<td>
+Used AI-supported ideation and visualization workflows to develop interactive portfolio pages,
+business-oriented layouts,
+and professional storytelling systems.
+</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<!-- KPI -->
+
+<section>
+
+<h2 class="section-title">Digital Productivity Indicators</h2>
+
+<div class="kpi-grid">
+
+<div class="kpi-card">
+
+<div class="counter" data-target="6">0</div>
+
+<p>AI Tools Explored</p>
+
+</div>
+
+<div class="kpi-card">
+
+<div class="counter" data-target="4">0</div>
+
+<p>Workflow Systems Designed</p>
+
+</div>
+
+<div class="kpi-card">
+
+<div class="counter" data-target="8">0</div>
+
+<p>Dashboard Concepts Built</p>
+
+</div>
+
+<div class="kpi-card">
+
+<div class="counter" data-target="5">0</div>
+
+<p>Research Workflows Structured</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- APPROACH -->
+
+<section>
+
+<h2 class="section-title">Approach to AI Usage</h2>
+
+<div class="approach-box">
+
+<h3>Business-Oriented AI Integration</h3>
+
+<p>
+AI tools were used as productivity-enhancement systems for research structuring,
+workflow visualization,
+analytical refinement,
+dashboard ideation,
+market understanding,
+and presentation support while maintaining independent interpretation and decision-making throughout project development.
+
+The focus remained on improving analytical thinking,
+workflow organization,
+business communication,
+and operational understanding through modern digital productivity systems and self-paced exploration of AI-assisted business workflows.
+</p>
+
+</div>
+
+</section>
 
 <footer>
 
-<p>
-AI Workflows • Dashboard Structuring • Productivity Systems • Business Analytics
-</p>
-
-<p>
-Aditya Kumar • MBA Portfolio
-</p>
+AI Workflows & Digital Productivity • Aditya Kumar
 
 </footer>
 
 <script>
 
-const ctx = document.getElementById('workflowChart');
+const counters = document.querySelectorAll('.counter');
 
-new Chart(ctx, {
+counters.forEach(counter => {
 
-type:'line',
+counter.innerText = '0';
 
-data:{
+const updateCounter = () => {
 
-labels:[
-'Research',
-'Structuring',
-'Analytics',
-'Dashboard',
-'Presentation'
-],
+const target = +counter.getAttribute('data-target');
 
-datasets:[{
+const current = +counter.innerText;
 
-label:'AI Workflow Exposure',
+const increment = target / 70;
 
-data:[68,84,79,88,91],
+if(current < target){
 
-borderColor:'#38bdf8',
+counter.innerText = `${Math.ceil(current + increment)}`;
 
-backgroundColor:'rgba(56,189,248,0.15)',
+setTimeout(updateCounter,40);
 
-fill:true,
+} else {
 
-tension:0.4,
-
-pointBackgroundColor:'#38bdf8',
-
-pointRadius:6
-
-}]
-
-},
-
-options:{
-
-responsive:true,
-
-plugins:{
-legend:{
-labels:{
-color:'white'
-}
-}
-},
-
-scales:{
-
-x:{
-ticks:{
-color:'white'
-},
-grid:{
-color:'rgba(255,255,255,0.06)'
-}
-},
-
-y:{
-ticks:{
-color:'white'
-},
-grid:{
-color:'rgba(255,255,255,0.06)'
-},
-beginAtZero:true,
-max:100
-}
+counter.innerText = target + '+';
 
 }
 
-}
+};
+
+updateCounter();
 
 });
 
