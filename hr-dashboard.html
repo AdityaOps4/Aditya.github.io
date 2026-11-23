@@ -624,6 +624,75 @@ width:100%;
 
 }
 
+
+    /* Interactive Power BI dashboard embed */
+
+    .pbi-intro{
+      max-width:900px;
+      color:#cbd5e1;
+      line-height:1.9;
+      margin-bottom:28px;
+    }
+
+    .pbi-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:28px;
+    }
+
+    .pbi-chips span{
+      padding:8px 16px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.35);
+      color:#38bdf8;
+      font-size:13px;
+      font-weight:600;
+      background:rgba(56,189,248,0.06);
+    }
+
+    .pbi-frame{
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+      background:#0c1422;
+      box-shadow:0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    .pbi-frame iframe{
+      width:100%;
+      height:900px;
+      border:0;
+      display:block;
+    }
+
+    .pbi-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .pbi-actions a{
+      color:#38bdf8;
+      text-decoration:none;
+      border:1px solid #38bdf8;
+      padding:11px 20px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:14px;
+      transition:0.3s ease;
+    }
+
+    .pbi-actions a:hover{
+      background:#38bdf8;
+      color:#0b0f19;
+    }
+
+    @media(max-width:768px){
+      .pbi-frame iframe{height:760px;}
+    }
+
 </style>
 
 </head>
@@ -792,6 +861,40 @@ and workforce reporting interpretation concepts.
 </section>
 
 <!-- LIVE HR DASHBOARD -->
+
+<section id="interactive-dashboard">
+
+<h2 class="section-title">Interactive HR Analytics Dashboard (Power BI)</h2>
+
+<p class="pbi-intro">
+A six-page Power BI project built for Talentonic HR Solutions, covering workforce overview,
+recruitment, attendance, performance and payroll for January – December 2025.
+Use the filters, click any chart to cross-filter the whole dashboard,
+and switch between tabs to explore people data end to end.
+</p>
+
+<div class="pbi-chips">
+<span>Power BI</span>
+<span>DAX Measures</span>
+<span>13-Table Data Model</span>
+<span>People Analytics</span>
+<span>6 Report Pages</span>
+</div>
+
+<div class="pbi-frame">
+<iframe
+src="hr-analytics-dashboard.html"
+title="HR Analytics & Workforce Intelligence Dashboard"
+loading="lazy"></iframe>
+</div>
+
+<div class="pbi-actions">
+<a href="hr-analytics-dashboard.html" target="_blank" rel="noopener">Open Full Screen ↗</a>
+<a href="HR_ANALYTICS_DASHBOARD.pbix" download>Download Power BI File (.pbix)</a>
+<a href="https://adityaops4.github.io/powerbi-projects/" target="_blank" rel="noopener">More Power BI Projects ↗</a>
+</div>
+
+</section>
 
 <section>
 
